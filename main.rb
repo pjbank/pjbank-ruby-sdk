@@ -1,26 +1,13 @@
 require 'rest-client'
 
-def credenciamento_conta_digital(nome_empresa)
+def credenciamento_conta_digital
     puts "\nLoading...\n"
-    response = RestClient.post(
-        'https://api.pjbank.com.br/contadigital/',
-        {
-            nome_empresa: nome_empresa,
-            cnpj: "60285827000110",
-            cep: '13032-525',
-            endereco: 'endereco',
-            numero: 'numero',
-            bairro: 'bairro',
-            complemento: '',
-            cidade: 'cidade',
-            estado: 'estado',
-            ddd: '19',
-            telefone: '81108110',
-            email: 'email@ruby.com'
-        }
+    response = RestClient::Request.execute(
+        method: :post,
+        url: 'https://api.pjbank.com.br/contadigital/',
+        body: '{"nome_empresa": "Exemplo Conta Digital",  "cnpj": "60285827000110",  "cep": "13032-525",  "endereco": "Rua Joaquim Vilac",  "numero": 509,  "bairro": "Vila Teixeira",  "complemento": "",  "cidade": "Campinas",  "estado": "SP",  "ddd": "19",  "telefone": "987652345",  "email": "api@pjbank.com.br"}'
+        
     )
-
-    puts response
 end
 
 def consulta_conta_digital(credencial, chave)
@@ -43,8 +30,8 @@ puts "Digite sua ação:\n1 - Credenciamento de Conta Digital\n2 - Consulta Cont
 acao = gets.chomp
 case acao
     when '1' 
-        puts "Nome da empresa. Ex: Exemplo Conta Digital"
-        nome_empresa = gets.chomp
+        # puts "Nome da empresa. Ex: Exemplo Conta Digital"
+        # nome_empresa = gets.chomp
         # puts "CNPJ. Ex: 60285827000110"
         # cnpj = gets.chomp
         # puts "CEP. Ex: 13032-525"
@@ -67,7 +54,7 @@ case acao
         # telefone = gets.chomp
         # puts "E-mail. Ex: api@pjbank.com.br"
         # email = gets.chomp
-        credenciamento_conta_digital nome_empresa
+        credenciamento_conta_digital
     when '2' 
         puts "Digite a Credencial (ex: eb2af021c5e2448c343965a7a80d7d090eb64164)"
         credencial = gets.chomp
