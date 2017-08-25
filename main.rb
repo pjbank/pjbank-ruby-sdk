@@ -2,12 +2,13 @@ require 'rest-client'
 
 def credenciamento_conta_digital
     puts "\nLoading...\n"
-    response = RestClient::Request.execute(
-        method: :post,
-        url: 'https://api.pjbank.com.br/contadigital/',
-        body: '{"nome_empresa": "Exemplo Conta Digital",  "cnpj": "60285827000110",  "cep": "13032-525",  "endereco": "Rua Joaquim Vilac",  "numero": 509,  "bairro": "Vila Teixeira",  "complemento": "",  "cidade": "Campinas",  "estado": "SP",  "ddd": "19",  "telefone": "987652345",  "email": "api@pjbank.com.br"}'
+    puts RestClient.post 'https://api.pjbank.com.br/contadigital/', {nome_empresa: "Exemplo Conta Digital",  cnpj: "57471918000136",  cep: "13032-525",  endereco: "Rua Joaquim Vilac",  numero: 509,  bairro: "Vila Teixeira",  complemento: "",  cidade: "Campinas",  estado: "SP",  ddd: "19",  telefone: "987652345",  email: "api@pjbank.com.br"}
+    # response = RestClient::Request.execute(
+    #     method: :post,
+    #     url: 'https://api.pjbank.com.br/contadigital/',
+    #     body: '{"nome_empresa": "Exemplo Conta Digital",  "cnpj": "60285827000110",  "cep": "13032-525",  "endereco": "Rua Joaquim Vilac",  "numero": 509,  "bairro": "Vila Teixeira",  "complemento": "",  "cidade": "Campinas",  "estado": "SP",  "ddd": "19",  "telefone": "987652345",  "email": "api@pjbank.com.br"}'
         
-    )
+    # )
 end
 
 def consulta_conta_digital(credencial, chave)
