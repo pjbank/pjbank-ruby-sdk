@@ -1,5 +1,6 @@
 class BoletoRecebimento
 
+    # TESTE - OK        
     def credenciamento
         
         puts "Nome da empresa. Ex: Exemplo Conta Digital"
@@ -25,7 +26,7 @@ class BoletoRecebimento
             response = RestClient::Request.execute(
                 method: :post,
                 url: 'https://api.pjbank.com.br/recebimentos/',
-                header: {
+                headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
                 payload: {
@@ -46,6 +47,7 @@ class BoletoRecebimento
         end
     end
 
+    # TESTE - OK
     def emitir
 
         puts "Digite a Credencial. Ex: d3418668b85cea70aa28965eafaf927cd34d004c"
@@ -95,8 +97,8 @@ class BoletoRecebimento
         begin
             response = RestClient::Request.execute(
                 method: :post,
-                url: "https://api.pjbank.com.br/recebimentos/#{credencial-boleto}/transacoes",
-                header: {
+                url: "https://api.pjbank.com.br/recebimentos/#{credencial}/transacoes",
+                headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
                 payload: {
@@ -107,7 +109,6 @@ class BoletoRecebimento
                     desconto: "#{desconto}",
                     nome_cliente: "#{nome_cliente}",  
                     cpf_cliente: "#{cpf_cliente}",  
-                    cep: "#{cep}",  
                     endereco_cliente: "#{endereco_cliente}",  
                     numero_cliente: numero_cliente,  
                     complemento_cliente: "#{complemento_cliente}",  
@@ -128,6 +129,7 @@ class BoletoRecebimento
 
     end
 
+    # TESTE - OK
     def impressaoLote
 
         puts "Digite a Credencial. Ex: d3418668b85cea70aa28965eafaf927cd34d004c"
@@ -140,20 +142,19 @@ class BoletoRecebimento
         puts "Array com número do pedido da cobrança. Ex: 8972"
         pedido_numero = gets.chomp
 
-
         puts "\nLoading...\n"
 
         begin
             response = RestClient::Request.execute(
                 method: :post,
-                url: "https://api.pjbank.com.br/recebimentos/#{credencial-boleto}/transacoes/lotes",
-                header: {
+                url: "https://api.pjbank.com.br/recebimentos/#{credencial}/transacoes/lotes",
+                headers: {
+                    "x-chave": chave,
                     "Content-Type": "application/x-www-form-urlencoded"
-                    'x-chave-conta': chave,
                 },
                 payload: {
-                    pedido_numero: "#{pedido_numero}",
-                    formato: "#{formato}"
+                    pedido_numero: pedido_numero,
+                    # formato: "#{formato}"
                 }
             )
 
@@ -164,6 +165,8 @@ class BoletoRecebimento
 
     end
 
+
+    # TESTE - OK
     def impressaoCarne
 
         puts "Digite a Credencial. Ex: d3418668b85cea70aa28965eafaf927cd34d004c"
@@ -182,10 +185,10 @@ class BoletoRecebimento
         begin
             response = RestClient::Request.execute(
                 method: :post,
-                url: "https://api.pjbank.com.br/recebimentos/#{credencial-boleto}/transacoes/lotes",
-                header: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                    'x-chave-conta': chave,
+                url: "https://api.pjbank.com.br/recebimentos/#{credencial}/transacoes/lotes",
+                headers: {
+                    'x-chave': chave,
+                    "Content-Type": "application/x-www-form-urlencoded",
                 },
                 payload: {
                     pedido_numero: "#{pedido_numero}",
