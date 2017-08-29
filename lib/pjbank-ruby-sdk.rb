@@ -5,16 +5,22 @@ require_relative 'recebimento/recebimento'
 
 module PJBank
 
-
     class Recebimento
         
-        @@contaController = ContaDigitalController.new
         @@recebimentoController = RecebimentoController.new
 
-        def self.recebimento opcao
-            puts opcao.acao
-            # @@recebimentoController.credenciamento
-            
+        def self.boleto(params)
+
+            params[:acao]
+
+            @@recebimentoController.public_send(params[:acao])
+
         end
+    end
+
+    class ContaDigital
+
+        @@contaController = ContaDigitalController.new
+        
     end
 end
