@@ -1,3 +1,8 @@
+# pjbank-ruby-sdk
+PJBank SDK para Ruby! :diamonds: :diamonds: :diamonds:
+
+![Construcao](https://openclipart.org/image/2400px/svg_to_png/231626/underconstruction.png)
+
 # Pjbank::Ruby::Sdk
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pjbank/ruby/sdk`. To experiment with that code, run `bin/console` for an interactive prompt.
