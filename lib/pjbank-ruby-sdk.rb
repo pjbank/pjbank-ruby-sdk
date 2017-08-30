@@ -10,12 +10,9 @@ module PJBank
         @@recebimentoController = RecebimentoController.new
 
         def self.boleto(params)
-
-            params[:acao]
-
-            @@recebimentoController.public_send(params[:acao])
-
+            @@recebimentoController.public_send(params[:acao], params) 
         end
+
     end
 
     class ContaDigital
