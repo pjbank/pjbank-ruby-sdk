@@ -3,14 +3,13 @@
 <html>
     <div class="container">
         <h1> Testes de Recebimento
-            <%= @tes %>
-            <%= @teste %>
+            <%# <%= @teste %>
         <div class="row">
             <div class="col-md-3">
                 <h3>
                     Credenciamento
                 </h3>
-                <%= form_tag("/recebimento/search", method: "post") do %>
+                <%= form_tag("/recebimento/credenciamento", method: "post") do %>
                     <div class="form-fields">
                         <%= label_tag :nome_empresa, "Nome da empresa (Empresa de Exemplo) :", class: 'label-field' %>
                         <%= text_field_tag :nome_empresa, "", class: 'input-field' %>
@@ -50,7 +49,7 @@
                 <h3>
                     Emitir
                 </h3>
-                <%= form_tag("/recebimento/search", method: "post") do %>
+                <%= form_tag("/recebimento/emitir", method: "post") do %>
                     <div class="form-fields">
                         <%= label_tag :vencimento, "Vencimento (12/30/2019) :", class: 'label-field' %>
                         <%= text_field_tag :vencimento, "", class: 'input-field' %>
@@ -130,7 +129,7 @@
                 <h3>
                     Emissão em Lote
                 </h3>
-                <%= form_tag("/recebimento/search", method: "post") do %>
+                <%= form_tag("/recebimento/emissao", method: "post") do %>
                     <div class="form-fields">
                         <%= label_tag :x_chave, "X-Chave (46e79d6d5161336afa7b98f01236efacf5d0f24b) :", class: 'label-field' %>
                         <%= text_field_tag :x_chave, "", class: 'input-field' %>
@@ -151,7 +150,7 @@
                 <h3>
                     Emissão de Carnê
                 </h3>
-                <%= form_tag("/recebimento/search", method: "post") do %>
+                <%= form_tag("/recebimento/carne", method: "post") do %>
                     <div class="form-fields">
                         <%= label_tag :x_chave, "X-Chave (46e79d6d5161336afa7b98f01236efacf5d0f24b) :", class: 'label-field' %>
                         <%= text_field_tag :x_chave, "", class: 'input-field' %>
