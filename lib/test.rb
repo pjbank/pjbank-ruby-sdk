@@ -1,4 +1,4 @@
-require './pjbank-ruby-sdk.rb'
+require 'pjbank-ruby-sdk'
 
 puts "Testes: "
 puts "1 - Recebimento/Boleto/Credenciamento"
