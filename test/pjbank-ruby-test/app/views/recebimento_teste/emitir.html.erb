@@ -2,9 +2,25 @@
 
 <html>
     <div class="container">
-        <h1> Emitir
-            <%= @teste %>
-        </h1>
+        <h1> Emitir</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <% if @json %>
+                    <b>Status: </b><%= @res['status'] %><br>
+                    <b>Mensagem: </b><%= @res['msg'] %><br>
+                    <b>Nosso Número: </b><%= @res['nossonumero'] %><br>
+                    <b>Link Boleto: </b><%= @res['linkBoleto'] %><br>
+                    <b>linkGrupo: </b><%= @res['linkGrupo'] %><br>
+                    <b>Linha Digitável: </b><%= @res['linhaDigitavel'] %><br>
+                <% else %>
+                    <%= @res %>
+                <% end %>
+            </div>
+            <br>
+            <div class="col-md-12">
+                <a href="/recebimento" class="btn btn-success">Voltar</a>
+            </div>
+        </div>
     </div>
 
     <style>

@@ -51,6 +51,10 @@
                 </h3>
                 <%= form_tag("/recebimento/emitir", method: "post") do %>
                     <div class="form-fields">
+                        <%= label_tag :credencial, "Credencial (d3418668b85cea70aa28965eafaf927cd34d004c) :", class: 'label-field' %>
+                        <%= text_field_tag :credencial, "", class: 'input-field' %>
+                    </div>
+                    <div class="form-fields">
                         <%= label_tag :vencimento, "Vencimento (12/30/2019) :", class: 'label-field' %>
                         <%= text_field_tag :vencimento, "", class: 'input-field' %>
                     </div>
@@ -131,8 +135,12 @@
                 </h3>
                 <%= form_tag("/recebimento/emissao", method: "post") do %>
                     <div class="form-fields">
-                        <%= label_tag :x_chave, "X-Chave (46e79d6d5161336afa7b98f01236efacf5d0f24b) :", class: 'label-field' %>
-                        <%= text_field_tag :x_chave, "", class: 'input-field' %>
+                        <%= label_tag :credencial, "Credencial (d3418668b85cea70aa28965eafaf927cd34d004c) :", class: 'label-field' %>
+                        <%= text_field_tag :credencial, "", class: 'input-field' %>
+                    </div>
+                    <div class="form-fields">
+                        <%= label_tag :chave, "Chave (46e79d6d5161336afa7b98f01236efacf5d0f24b) :", class: 'label-field' %>
+                        <%= text_field_tag :chave, "", class: 'input-field' %>
                     </div>
                     <div class="form-fields">
                         <%= label_tag :pedido_numero, "Número de pedidos (pode ser array):", class: 'label-field' %>
@@ -152,14 +160,18 @@
                 </h3>
                 <%= form_tag("/recebimento/carne", method: "post") do %>
                     <div class="form-fields">
-                        <%= label_tag :x_chave, "X-Chave (46e79d6d5161336afa7b98f01236efacf5d0f24b) :", class: 'label-field' %>
-                        <%= text_field_tag :x_chave, "", class: 'input-field' %>
+                        <%= label_tag :credencial, "Credencial (d3418668b85cea70aa28965eafaf927cd34d004c) :", class: 'label-field' %>
+                        <%= text_field_tag :credencial, "", class: 'input-field' %>
+                    </div>
+                    <div class="form-fields">
+                        <%= label_tag :chave, "X-Chave (46e79d6d5161336afa7b98f01236efacf5d0f24b) :", class: 'label-field' %>
+                        <%= text_field_tag :chave, "", class: 'input-field' %>
                     </div>
                     <div class="form-fields">
                         <%= label_tag :pedido_numero, "Número de pedidos (pode ser array):", class: 'label-field' %>
                         <%= text_field_tag :pedido_numero, "", class: 'input-field' %>
                     </div>
-                    <%= hidden_field :formato, "carne" %>
+                    <input type="hidden" name="formato" value="carne">
                     <input type="submit" class="btn btn-success submit-field" value="Enviar">
                 <% end %>
             </div>

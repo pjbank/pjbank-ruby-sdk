@@ -3,8 +3,24 @@
 <html>
     <div class="container">
         <h1> Credenciamento</h1>
-        Status: <%= @res[status] %> <br>
-
+        <div class="row">
+            <div class="col-md-12">
+                <% if @json %>
+                    <b>Status: </b><%= @res['status'] %><br>
+                    <b>Mensagem: </b><%= @res['msg'] %><br>
+                    <b>Credencial: </b><%= @res['credencial'] %><br>
+                    <b>Chave: </b><%= @res['chave'] %><br>
+                    <b>Conta Virtual: </b><%= @res['conta_virtual'] %><br>
+                    <b>Agência Virtual: </b><%= @res['agencia_virtual'] %><br>
+                <% else %>
+                    <%= @res %>
+                <% end %>
+            </div>
+            <br>
+            <div class="col-md-12">
+                <a href="/recebimento" class="btn btn-success">Voltar</a>
+            </div>
+        </div>
     </div>
 
     <style>
