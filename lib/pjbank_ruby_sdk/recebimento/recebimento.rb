@@ -1,5 +1,6 @@
 require_relative 'boleto/boleto'
 require_relative 'cartao/cartao'
+require_relative 'extrato/extrato'
 
 module RecebimentoController
 
@@ -63,6 +64,32 @@ module RecebimentoController
         def cancelarTransacao params
             aut = params[:aut]
             @cartaoController.cancelarTransacao aut
+        end
+    end
+
+    class Extrato
+        def initialize
+            @extratoController = ExtratoRecebimento.new
+        end
+
+        def pagamentos params
+            aut = params[:aut]
+            @extratoController.pagamentos aut
+        end
+
+        def pagamentosLiquidados params
+            aut = params[:aut]
+            @extratoController.pagamentosLiquidados aut
+        end
+
+        def pagamentosFiltrados params
+            aut = params[:aut]
+            @extratoController.pagamentosFiltrados aut
+        end
+
+        def pagamentosPaginados params
+            aut = params[:aut]
+            @extratoController.pagamentosPaginados aut
         end
     end
 

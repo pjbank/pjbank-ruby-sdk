@@ -10,6 +10,10 @@ puts "6 - Recebimento/Cartão de Crédito/Tokenizar um cartão"
 puts "7 - Recebimento/Cartão de Crédito/Criar transação com token"
 puts "8 - Recebimento/Cartão de Crédito/Criar transação com dados do cartão"
 puts "9 - Recebimento/Cartão de Crédito/Cancelar transação"
+puts "10 - Recebimento/Extrato/Extrato de pagamentos"
+puts "11 - Recebimento/Extrato/Extrato de pagamentos liquidados"
+puts "12 - Recebimento/Extrato/Extrato de pagamentos filtrados por data"
+puts "13 - Recebimento/Extrato/Extrato de pagamentos paginado"
 
 teste = gets.chomp
 
@@ -154,6 +158,41 @@ case teste
                 'credencial_cartao': '1264e7bea04bb1c24b07ace759f64a1bd65c8560',
                 'chave_cartao': 'ef947cf5867488f744b82744dd3a8fc4852e529f',
                 'tid_cartao': '2017000006910011775476'
+            }
+        )
+    when '10'
+        PJBank::Recebimento.extrato(
+            acao: :pagamentos,
+            aut: {
+                'credencial_cartao': '1264e7bea04bb1c24b07ace759f64a1bd65c8560',
+                'chave_cartao': 'ef947cf5867488f744b82744dd3a8fc4852e529f',
+            }
+        )
+    when '11'
+        PJBank::Recebimento.extrato(
+            acao: :pagamentosLiquidados,
+            aut: {
+                'credencial_cartao': '1264e7bea04bb1c24b07ace759f64a1bd65c8560',
+                'chave_cartao': 'ef947cf5867488f744b82744dd3a8fc4852e529f',
+            }
+        )
+    when '12'
+        PJBank::Recebimento.extrato(
+            acao: :pagamentosFiltrados,
+            aut: {
+                'credencial_cartao': '1264e7bea04bb1c24b07ace759f64a1bd65c8560',
+                'chave_cartao': 'ef947cf5867488f744b82744dd3a8fc4852e529f',
+                'data_inicio': '08/01/2017',
+                'data_fim': '08/30/2017'
+            }
+        )
+    when '13'
+        PJBank::Recebimento.extrato(
+            acao: :pagamentosPaginados,
+            aut: {
+                'credencial_cartao': '1264e7bea04bb1c24b07ace759f64a1bd65c8560',
+                'chave_cartao': 'ef947cf5867488f744b82744dd3a8fc4852e529f',
+                'pagina': '3'
             }
         )
 end

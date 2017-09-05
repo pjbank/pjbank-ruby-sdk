@@ -18,6 +18,10 @@ module PJBank
             @@recebimentoController.public_send(params[:acao], params) 
         end
 
+        def self.extrato(params)
+            recebimentoController = RecebimentoController::Extrato.new
+            recebimentoController.public_send(params[:acao], params)
+        end
     end
 
     class ContaDigital
