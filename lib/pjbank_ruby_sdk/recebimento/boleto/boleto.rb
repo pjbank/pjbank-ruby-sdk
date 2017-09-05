@@ -22,9 +22,9 @@ class BoletoRecebimento
                 }
             )
 
-            puts response
+            return response
         rescue RestClient::ExceptionWithResponse => err
-            puts err
+            return err
         end
     end
 
@@ -59,9 +59,9 @@ class BoletoRecebimento
                 }
             )
 
-            puts response
+            return response
         rescue RestClient::ExceptionWithResponse => err
-            puts err
+            return err
         end
 
     end
@@ -83,9 +83,9 @@ class BoletoRecebimento
                 }
             )
 
-            puts response
+            return response
         rescue RestClient::ExceptionWithResponse => err
-            puts err
+            return err
         end
 
     end
@@ -108,9 +108,9 @@ class BoletoRecebimento
                 }
             )
 
-            puts response
+            return response
         rescue RestClient::ExceptionWithResponse => err
-            puts err
+            return err
         end
 
     end

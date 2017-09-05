@@ -52,9 +52,9 @@ class CredenciamentoContaDigital
                 }
             )
 
-            puts response
+            return response
         rescue RestClient::ExceptionWithResponse => err
-            puts err
+            return err
         end
     end
 
@@ -76,9 +76,9 @@ class CredenciamentoContaDigital
                 }
             )
 
-            puts response
+            return response
         rescue RestClient::ExceptionWithResponse => err
-            puts err
+            return err
         end
 
     end
@@ -107,9 +107,9 @@ class CredenciamentoContaDigital
                 }
             )
 
-            puts response
+            return response
         rescue RestClient::ExceptionWithResponse => err
-            puts err
+            return err
         end
 
     end

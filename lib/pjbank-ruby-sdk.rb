@@ -1,10 +1,10 @@
 require 'rest-client'
-require 'json'
-require_relative 'contadigital/contadigital'
-require_relative 'recebimento/recebimento'
+
+require File.dirname(__FILE__) + '/pjbank_ruby_sdk/version'
+require File.dirname(__FILE__) + '/pjbank_ruby_sdk/contadigital/contadigital'
+require File.dirname(__FILE__) + '/pjbank_ruby_sdk/recebimento/recebimento'
 
 module PJBank
-
     class Recebimento
         
         @@recebimentoController = RecebimentoController.new
