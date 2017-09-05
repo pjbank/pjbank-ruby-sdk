@@ -1,40 +1,69 @@
 require_relative 'boleto/boleto'
+require_relative 'cartao/cartao'
 
-class RecebimentoController
+module RecebimentoController
 
-    def initialize
-        @boletoController = BoletoRecebimento.new
+    class Boleto
+        def initialize
+            @boletoController = BoletoRecebimento.new
+        end
+
+        def credenciamento params
+            dados = params[:dados]
+            @boletoController.credenciamento dados
+        end
+
+        def emitir params
+            dados = params[:dados]
+            aut = params[:aut]
+            @boletoController.emitir dados, aut
+        end
+
+        def impressaoLote params
+            dados = params[:dados]
+            aut = params[:aut]
+            @boletoController.impressaoLote dados, aut
+        end
+
+        def impressaoCarne params
+            dados = params[:dados]
+            aut = params[:aut]
+            @boletoController.impressaoCarne dados, aut
+        end
     end
 
-    def credenciamento params
+    class Cartao
+        def initialize
+            @cartaoController = CartaoRecebimento.new
+        end
 
-        dados = params[:dados]
-        @boletoController.credenciamento dados
+        def credenciamento params
+            dados = params[:dados]
+            @cartaoController.credenciamento dados
+        end
 
-    end
+        def tokenizar params
+            dados = params[:dados]
+            aut = params[:aut]
+            @cartaoController.tokenizar dados, aut
+        end
 
-    def emitir params
+        def emitirToken params
+            dados = params[:dados]
+            aut = params[:aut]
+            @cartaoController.emitirToken dados, aut
+        end
 
-        dados = params[:dados]
-        aut = params[:aut]
-        @boletoController.emitir dados, aut
+        def emitirCartao params
+            dados = params[:dados]
+            aut = params[:aut]
+            @cartaoController.emitirCartao dados, aut
+        end
 
-    end
-
-    def impressaoLote params
-
-        dados = params[:dados]
-        aut = params[:aut]
-        @boletoController.impressaoLote dados, aut
-
-    end
-
-    def impressaoCarne params
-        
-        dados = params[:dados]
-        aut = params[:aut]
-        @boletoController.impressaoCarne dados, aut
-
+        def cancelarTransacao params
+            aut = params[:aut]
+            @cartaoController.cancelarTransacao aut
+        end
     end
 
 end
