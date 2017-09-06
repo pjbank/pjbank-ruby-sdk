@@ -1,0 +1,2 @@
+class RecebimentoCartaoController < ApplicationController
+end

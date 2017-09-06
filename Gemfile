@@ -1,5 +1,6 @@
-# frozen_string_literal: true
-source "https://rubygems.org" do
-    gem 'rest-client'
-end
-# gem "rails"
+source "https://rubygems.org"
+
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+# Specify your gem's dependencies in pjbank_ruby_sdk.gemspec
+gemspec
