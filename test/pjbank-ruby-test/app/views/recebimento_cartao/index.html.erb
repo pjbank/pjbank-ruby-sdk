@@ -3,16 +3,15 @@
 <html>
     <div class="container">
         <h1> Testes de Recebimento
-            <%= @tes %>
-            <%= @teste %>
+            <%# <%= @teste %>
         <div class="row">
             <div class="col-md-3">
                 <h3>
                     Credenciamento
                 </h3>
-                <%= form_tag("/recebimento/search", method: "post") do %>
+                <%= form_tag("/recebimento/cartao/credenciamento", method: "post") do %>
                     <div class="form-fields">
-                        <%= label_tag :nome_empresa, "Nome da empresa (Empresa de Exemplo) :", class: 'label-field' %>
+                        <%= label_tag :nome_empresa, "Nome da empresa (Empresa de Exemplo):", class: 'label-field' %>
                         <%= text_field_tag :nome_empresa, "", class: 'input-field' %>
                     </div>
                     <div class="form-fields">
@@ -43,6 +42,11 @@
                         <%= label_tag :email, "E-mail (atendimento@pjbank.com.br):", class: 'label-field' %>
                         <%= text_field_tag :email, "", class: 'input-field' %>
                     </div>
+                    <div class="form-fields">
+                        <%= label_tag :agencia, "Agencia (?):", class: 'label-field' %>
+                        <%= text_field_tag :agencia, "", class: 'input-field' %>
+                    </div>
+                    <input type="hidden" name="cartao" value="true">
                     <input type="submit" class="btn btn-success submit-field" value="Enviar">
                 <% end %>
             </div>
@@ -50,78 +54,46 @@
                 <h3>
                     Emitir
                 </h3>
-                <%= form_tag("/recebimento/search", method: "post") do %>
+                <%= form_tag("/recebimento/cartao/tokenizar", method: "post") do %>
                     <div class="form-fields">
-                        <%= label_tag :vencimento, "Vencimento (12/30/2019) :", class: 'label-field' %>
-                        <%= text_field_tag :vencimento, "", class: 'input-field' %>
+                        <%= label_tag :credencial_cartao, "Credencial (1264e7bea04bb1c24b07ace759f64a1bd65c8560) :", class: 'label-field' %>
+                        <%= text_field_tag :credencial_cartao, "", class: 'input-field' %>
                     </div>
                     <div class="form-fields">
-                        <%= label_tag :valor, "Valor (50.75):", class: 'label-field' %>
-                        <%= text_field_tag :valor, "", class: 'input-field' %>
+                        <%= label_tag :chave_cartao, "Chave (ef947cf5867488f744b82744dd3a8fc4852e529f) :", class: 'label-field' %>
+                        <%= text_field_tag :chave_cartao, "", class: 'input-field' %>
                     </div>
                     <div class="form-fields">
-                        <%= label_tag :juros, "Juros (0):", class: 'label-field' %>
-                        <%= text_field_tag :juros, "", class: 'input-field' %>
+                        <%= label_tag :nome_cartao, "Nome Cartão (Cliente Exemplo) :", class: 'label-field' %>
+                        <%= text_field_tag :nome_cartao, "", class: 'input-field' %>
                     </div>
                     <div class="form-fields">
-                        <%= label_tag :multa, "Banco Repasse (0):", class: 'label-field' %>
-                        <%= text_field_tag :multa, "", class: 'input-field' %>
+                        <%= label_tag :numero_cartao, "Número do Cartão (4012001037141112):", class: 'label-field' %>
+                        <%= text_field_tag :numero_cartao, "", class: 'input-field' %>
                     </div>
                     <div class="form-fields">
-                        <%= label_tag :desconto, "Desconto (9.58):", class: 'label-field' %>
-                        <%= text_field_tag :desconto, "", class: 'input-field' %>
+                        <%= label_tag :mes_vencimento, "Mês Vencimento (05):", class: 'label-field' %>
+                        <%= text_field_tag :mes_vencimento, "", class: 'input-field' %>
                     </div>
                     <div class="form-fields">
-                        <%= label_tag :nome_cliente, "Nome Cliente (Cliente de Exemplo):", class: 'label-field' %>
-                        <%= text_field_tag :nome_cliente, "", class: 'input-field' %>
+                        <%= label_tag :ano_vencimento, "Ano Vencimento (2018):", class: 'label-field' %>
+                        <%= text_field_tag :ano_vencimento, "", class: 'input-field' %>
                     </div>
                     <div class="form-fields">
-                        <%= label_tag :cpf_cliente, "CPF Cliente (62936576000112):", class: 'label-field' %>
-                        <%= text_field_tag :cpf_cliente, "", class: 'input-field' %>
+                        <%= label_tag :cpf_cartao, "CPF Cartão (64111456529):", class: 'label-field' %>
+                        <%= text_field_tag :cpf_cartao, "", class: 'input-field' %>
                     </div>
                     <div class="form-fields">
-                        <%= label_tag :endereco_cliente, "Endereco Cliente (Rua Joaquim Vilac):", class: 'label-field' %>
-                        <%= text_field_tag :endereco_cliente, "", class: 'input-field' %>
+                        <%= label_tag :email_cartao, "E-mail Cartão (api@pjbank.com.br):", class: 'label-field' %>
+                        <%= text_field_tag :email_cartao, "", class: 'input-field' %>
                     </div>
                     <div class="form-fields">
-                        <%= label_tag :numero_cliente, "Número Cliente (509):", class: 'label-field' %>
-                        <%= text_field_tag :numero_cliente, "", class: 'input-field' %>
+                        <%= label_tag :celular_cartao, "Celular Cartão (978456723):", class: 'label-field' %>
+                        <%= text_field_tag :celular_cartao, "", class: 'input-field' %>
                     </div>
                     <div class="form-fields">
-                        <%= label_tag :complemento_cliente, "Complemento Cliente (opcional):", class: 'label-field' %>
-                        <%= text_field_tag :complemento_cliente, "", class: 'input-field' %>
-                    </div>
-                    <div class="form-fields">
-                        <%= label_tag :bairro_cliente, "Bairro Cliente (Vila Teixeira):", class: 'label-field' %>
-                        <%= text_field_tag :bairro_cliente, "", class: 'input-field' %>
-                    </div>
-                    <div class="form-fields">
-                        <%= label_tag :cidade_cliente, "Cidade Cliente (Campinas):", class: 'label-field' %>
-                        <%= text_field_tag :cidade_cliente, "", class: 'input-field' %>
-                    </div>
-                    <div class="form-fields">
-                        <%= label_tag :estado_cliente, "Estado Cliente (SP):", class: 'label-field' %>
-                        <%= text_field_tag :estado_cliente, "", class: 'input-field' %>
-                    </div>
-                    <div class="form-fields">
-                        <%= label_tag :cep_cliente, "CEP Cliente (13301510):", class: 'label-field' %>
-                        <%= text_field_tag :cep_cliente, "", class: 'input-field' %>
-                    </div>
-                    <div class="form-fields">
-                        <%= label_tag :logo_url, "Logo URL (http://wallpapercave.com/wp/xK64fR4.jpg):", class: 'label-field' %>
-                        <%= text_field_tag :logo_url, "", class: 'input-field' %>
-                    </div>
-                    <div class="form-fields">
-                        <%= label_tag :texto, "Texto (opcional):", class: 'label-field' %>
-                        <%= text_field_tag :texto, "", class: 'input-field' %>
-                    </div>
-                    <div class="form-fields">
-                        <%= label_tag :grupo, "Grupo (Boletos001):", class: 'label-field' %>
-                        <%= text_field_tag :grupo, "", class: 'input-field' %>
-                    </div>
-                    <div class="form-fields">
-                        <%= label_tag :pedido_numero, "Pedido Número (8972):", class: 'label-field' %>
-                        <%= text_field_tag :pedido_numero, "", class: 'input-field' %>
+                        <%= label_tag :codigo_cvv, "Código CVV (123):", class: 'label-field' %>
+                        <%= text_field_tag :codigo_cvv, "", class: 'input-field' %>
                     </div>
                     <input type="submit" class="btn btn-success submit-field" value="Enviar">
                 <% end %>
@@ -130,10 +102,14 @@
                 <h3>
                     Emissão em Lote
                 </h3>
-                <%= form_tag("/recebimento/search", method: "post") do %>
+                <%= form_tag("/recebimento/emissao", method: "post") do %>
                     <div class="form-fields">
-                        <%= label_tag :x_chave, "X-Chave (46e79d6d5161336afa7b98f01236efacf5d0f24b) :", class: 'label-field' %>
-                        <%= text_field_tag :x_chave, "", class: 'input-field' %>
+                        <%= label_tag :credencial, "Credencial (d3418668b85cea70aa28965eafaf927cd34d004c) :", class: 'label-field' %>
+                        <%= text_field_tag :credencial, "", class: 'input-field' %>
+                    </div>
+                    <div class="form-fields">
+                        <%= label_tag :chave, "Chave (46e79d6d5161336afa7b98f01236efacf5d0f24b) :", class: 'label-field' %>
+                        <%= text_field_tag :chave, "", class: 'input-field' %>
                     </div>
                     <div class="form-fields">
                         <%= label_tag :pedido_numero, "Número de pedidos (pode ser array):", class: 'label-field' %>
@@ -151,16 +127,20 @@
                 <h3>
                     Emissão de Carnê
                 </h3>
-                <%= form_tag("/recebimento/search", method: "post") do %>
+                <%= form_tag("/recebimento/carne", method: "post") do %>
                     <div class="form-fields">
-                        <%= label_tag :x_chave, "X-Chave (46e79d6d5161336afa7b98f01236efacf5d0f24b) :", class: 'label-field' %>
-                        <%= text_field_tag :x_chave, "", class: 'input-field' %>
+                        <%= label_tag :credencial, "Credencial (d3418668b85cea70aa28965eafaf927cd34d004c) :", class: 'label-field' %>
+                        <%= text_field_tag :credencial, "", class: 'input-field' %>
+                    </div>
+                    <div class="form-fields">
+                        <%= label_tag :chave, "X-Chave (46e79d6d5161336afa7b98f01236efacf5d0f24b) :", class: 'label-field' %>
+                        <%= text_field_tag :chave, "", class: 'input-field' %>
                     </div>
                     <div class="form-fields">
                         <%= label_tag :pedido_numero, "Número de pedidos (pode ser array):", class: 'label-field' %>
                         <%= text_field_tag :pedido_numero, "", class: 'input-field' %>
                     </div>
-                    <%= hidden_field :formato, "carne" %>
+                    <input type="hidden" name="formato" value="carne">
                     <input type="submit" class="btn btn-success submit-field" value="Enviar">
                 <% end %>
             </div>

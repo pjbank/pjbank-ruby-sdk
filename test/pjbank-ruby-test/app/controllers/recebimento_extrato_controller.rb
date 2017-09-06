@@ -1,0 +1,2 @@
+class RecebimentoExtratoController < ApplicationController
+end
