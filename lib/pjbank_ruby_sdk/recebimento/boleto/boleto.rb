@@ -24,7 +24,7 @@ class BoletoRecebimento
 
             return response
         rescue RestClient::ExceptionWithResponse => err
-            return err
+            return err.response
         end
     end
 
@@ -61,7 +61,7 @@ class BoletoRecebimento
 
             return response
         rescue RestClient::ExceptionWithResponse => err
-            return err
+            return err.response
         end
 
     end
@@ -85,7 +85,7 @@ class BoletoRecebimento
 
             return response
         rescue RestClient::ExceptionWithResponse => err
-            return err
+            return err.response
         end
 
     end
@@ -110,7 +110,7 @@ class BoletoRecebimento
 
             return response
         rescue RestClient::ExceptionWithResponse => err
-            return err
+            return err.response
         end
 
     end

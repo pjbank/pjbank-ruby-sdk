@@ -23,7 +23,7 @@ class CartaoRecebimento
 
             return response
         rescue RestClient::ExceptionWithResponse => err
-            return err
+            return err.response
         end
     end
 
@@ -50,7 +50,7 @@ class CartaoRecebimento
 
             return response
         rescue RestClient::ExceptionWithResponse => err
-            return err
+            return err.response
         end
     end
 
@@ -73,7 +73,7 @@ class CartaoRecebimento
 
             return response
         rescue RestClient::ExceptionWithResponse => err
-            return err
+            return err.response
         end
     end
 
@@ -103,7 +103,7 @@ class CartaoRecebimento
 
             return response
         rescue RestClient::ExceptionWithResponse => err
-            return err
+            return err.response
         end
     end
 
@@ -120,7 +120,7 @@ class CartaoRecebimento
 
             return response
         rescue RestClient::ExceptionWithResponse => err
-            return err
+            return err.response
         end
     end
 

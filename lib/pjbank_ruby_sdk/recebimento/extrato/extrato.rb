@@ -12,7 +12,7 @@ class ExtratoRecebimento
 
             return response
         rescue RestClient::ExceptionWithResponse => err
-            return err
+            return err.response
         end
     end
 
@@ -29,7 +29,7 @@ class ExtratoRecebimento
 
             return response
         rescue RestClient::ExceptionWithResponse => err
-            return err
+            return err.response
         end
     end
 
@@ -46,7 +46,7 @@ class ExtratoRecebimento
 
             return response
         rescue RestClient::ExceptionWithResponse => err
-            return err
+            return err.response
         end
     end
 
@@ -63,7 +63,7 @@ class ExtratoRecebimento
 
             return response
         rescue RestClient::ExceptionWithResponse => err
-            return err
+            return err.response
         end
     end
 end
