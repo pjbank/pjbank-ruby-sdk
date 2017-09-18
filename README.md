@@ -9,11 +9,20 @@ Navegue até raiz do projeto e rode o comando abaixo para realizar a instalaçã
 
     $ gem install pjbank-ruby-sdk
 
+Após a instalação da Gem, coloque as linhas abaixo no arquivo Gemfile, dê sua aplicação Rails:
+
+    gem "rest-clien", '~> 2.0'
+    gem "pjbank-ruby-sdk", '~> 0.1.0'
+
+Por fim, atualize o bundle de sua aplicação:
+
+    bundle install
+
 ## Uso
 
 Para realizar chamadas em uma aplicação Rails, é necessário chamar as classes e métodos desejados, através do módulo PJBank. Segue lista de classes e métodos disponíveis:
 
-Classe: Recebimento
+Classe: Recebimento<br>
 Métodos: 
 * [boleto](https://docs.pjbank.com.br/#820dd8c7-79e5-4df8-c413-ab195362d311) - Ações: <a href="https://docs.pjbank.com.br/#eec6e8b5-3634-4e39-5bba-c37594afceda" target="_blank">credenciamento</a> | <a href="https://docs.pjbank.com.br/#530279a2-bf8e-3af2-43c6-ff302845f0c0" target="_blank">emitir</a> | <a href="https://docs.pjbank.com.br/#11daeeab-fc33-ecc5-46e5-325b906796ed" target="_blank">impressaoLote</a> | <a href="https://docs.pjbank.com.br/#36c05fc4-0901-f3bb-077b-51178d9ce2b7" target="_blank">impressaoCarne</a>
 * [cartao](https://docs.pjbank.com.br/#80a47dce-f30f-f502-cde8-5ee829e42279) - Ações: <a href="https://docs.pjbank.com.br/#6b249342-6376-925c-f920-0703069407f6" target="_blank">credenciamento</a> | <a href="https://docs.pjbank.com.br/#af15c310-3778-5ecf-fe12-c0aa3f8376ed" target="_blank">tokenizar</a> | <a href="https://docs.pjbank.com.br/#5732b1dd-4031-8018-8912-a79dd186cf76" target="_blank">emitirToken</a> | <a href="https://docs.pjbank.com.br/#a4af3d03-7bd4-1afb-bc4e-082595db9374" target="_blank">emitirCartao</a> | <a href="https://docs.pjbank.com.br/#3fc57c0d-4b60-331a-0e40-2fe2992e36c7" target="_blank">cancelarTransacao</a>
@@ -21,7 +30,7 @@ Métodos:
 
 ## Exemplos
 
-Exemplo de como realizar um credenciamento, para começar a receber com boleto bancário
+Exemplo de como realizar um credenciamento, para começar a receber com boleto bancário:
 
     PJBank::Recebimento.boleto(
         acao: :credenciamento, 
@@ -37,7 +46,7 @@ Exemplo de como realizar um credenciamento, para começar a receber com boleto b
         }
     )
 
-Exemplo de como tokenizar um cartão de crédito
+Exemplo de como tokenizar um cartão de crédito:
 
     PJBank::Recebimento.cartao(
         acao: :tokenizar,
