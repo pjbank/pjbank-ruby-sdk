@@ -5,7 +5,7 @@ module PJBank
   class Http
     attr_reader :chave, :credencial
 
-    def initialize(chave:, credencial:)
+    def initialize(chave: nil, credencial: nil)
       @chave      = chave
       @credencial = credencial
     end
@@ -19,12 +19,15 @@ module PJBank
     private
 
     def send_request(method, path, options)
+      options[:payload] = options[:payload].to_json if options[:payload]
+
       response = RestClient::Request.execute(options.merge!({
         method:  method,
-        url:     "#{PJBank.configuracao.url}#{path}".gsub(':credencial', credencial),
+        url:     "#{PJBank.configuracao.url}#{path}".gsub(':credencial', credencial.to_s),
         headers: {
-          "Content-Type": "application/json",
-          "X-CHAVE":      chave,
+          "Content-Type" => "application/json",
+          "X-CHAVE"      => chave,
+          "User-Agent"   => PJBank.configuracao.user_agent,
         }
       }))
       # TODO: lidar com possíveis exceções

@@ -1,9 +1,10 @@
 module PJBank
   class Configuracao
-    attr_accessor :env
+    attr_accessor :env, :user_agent
 
     def initialize
-      @env = "production"
+      @env        = "production"
+      @user_agent = "pjbank-ruby-sdk/#{PJBank::VERSION}"
     end
 
     def url
