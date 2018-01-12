@@ -2,6 +2,8 @@ require 'ostruct'
 require 'json'
 
 module PJBank
+  RequestError = Class.new(Exception)
+
   class Http
     attr_reader :chave, :credencial
 
@@ -30,9 +32,20 @@ module PJBank
           "User-Agent"   => PJBank.configuracao.user_agent,
         }
       }))
-      # TODO: lidar com possíveis exceções
+
       OpenStruct.new(JSON.parse(response.body))
+
+      rescue RestClient::ExceptionWithResponse => e
+        error!(e.response)
     end
 
+    def error!(response)
+      body = JSON.parse(response.body) rescue {}
+      raise RequestError.new(
+        code:    response.code,
+        message: body["msg"],
+        body:    body
+      )
+    end
   end
 end

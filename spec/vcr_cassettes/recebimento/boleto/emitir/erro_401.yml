@@ -21,49 +21,39 @@ http_interactions:
       X-Chave:
       - 027e30fbc768931e0682479e0f0404a0fcc8886b
       Content-Length:
-      - '407'
+      - '400'
       Host:
       - sandbox.pjbank.com.br
   response:
     status:
-      code: 201
-      message: Created
+      code: 401
+      message: Unauthorized
     headers:
       Content-Type:
       - application/json
       Content-Length:
-      - '552'
+      - '59'
       Connection:
       - keep-alive
       Date:
-      - Fri, 12 Jan 2018 11:54:01 GMT
+      - Fri, 12 Jan 2018 11:28:09 GMT
       X-Amzn-Requestid:
-      - 474a607a-f78f-11e7-b42e-4b0568345c1e
+      - aa53c203-f78b-11e7-b749-230b0f7af8f2
       Access-Control-Allow-Origin:
       - "*"
       X-Amzn-Trace-Id:
-      - Root=1-5a58a1d8-9b35b7aab6354e0f311e1c14
+      - Root=1-5a589bc8-dbede4ec25f0d664a10774af
       X-Cache:
-      - Miss from cloudfront
+      - Error from cloudfront
       Via:
-      - 1.1 fc45926665ff27c35bd71fc61dc20b1c.cloudfront.net (CloudFront)
+      - 1.1 f1b4e4a7e835f23b19b87ec81024b65a.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 9Vj9d3O4qtI70dLgiIcoFBqIKAuHsop4sGhdzW5HZJxtPuOmvsUYPw==
+      - vqGsYWbM0W5YzHsjaeM01s0Q54JIwxkXm9kQ7py89QymPz9sFkCH6Q==
     body:
-      encoding: UTF-8
-      string: |-
-        {
-            "status": "201",
-            "msg": "Sucesso.",
-            "nossonumero": "33215",
-            "id_unico": "33215",
-            "banco_numero": "033",
-            "token_facilitador": "78f0dce295bf8c4fa26bf5de3daefd1d659fe381",
-            "credencial": "15524442a57788c4f3109c939056d821302155a9",
-            "linkBoleto": "https:\/\/sandbox.pjbank.com.br\/boletos\/d079a08a6a37f4696af318bf9d737af0957cb3f9",
-            "linkGrupo": "https:\/\/sandbox.pjbank.com.br\/boletos\/grupos\/27df24676df2c9b8633f52dc57ee035bc4d0f65a",
-            "linhaDigitavel": "03399.69925 58737.800001 33215.001018 5 81190000100098"
-        }
-    http_version: 
-  recorded_at: Fri, 12 Jan 2018 11:54:01 GMT
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAgInN0YXR1cyI6ICI0MDEiLAogICAgIm1zZyI6ICJDcmVkZW5jaWFs
+        IGludsOhbGlkYS4iCn0=
+    http_version:
+  recorded_at: Fri, 12 Jan 2018 11:28:09 GMT
 recorded_with: VCR 4.0.0

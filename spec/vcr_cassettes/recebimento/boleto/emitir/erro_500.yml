@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.pjbank.com.br/recebimentos/15524442a57788c4f3109c939056d821302155a9/transacoes
+    body:
+      encoding: UTF-8
+      string: '{"valor":"100.55"}'
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - pjbank-ruby-sdk/0.1.0
+      Content-Type:
+      - application/json
+      X-Chave:
+      - 027e30fbc768931e0682479e0f0404a0fcc8886b
+      Content-Length:
+      - '18'
+      Host:
+      - sandbox.pjbank.com.br
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '81'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 12 Jan 2018 13:41:03 GMT
+      X-Amzn-Requestid:
+      - 3b4ee985-f79e-11e7-b227-ab8315fe2342
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Amzn-Trace-Id:
+      - Root=1-5a58baef-0456cbf5b992f9d3b1631ea8
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 e6f30ff2a00b02b2483eadd0295f9041.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 7up0nGRhnYrwGutQ9TSff_wxq7irYJeRiLmA_z4LTMRRE9FF3x7Ztw==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAgInN0YXR1cyI6ICI1MDAiLAogICAgIm1zZyI6ICJWZW5jaW1lbnRv
+        LCBlc3RlIGNhbXBvIG7Do28gcG9kZSBzZXIgdmF6aW8uIgp9
+    http_version: 
+  recorded_at: Fri, 12 Jan 2018 13:41:03 GMT
+recorded_with: VCR 4.0.0

@@ -1,6 +1,7 @@
 require 'rest-client'
 
 require 'pjbank/version'
+require 'pjbank/exception'
 require 'pjbank/configuracao'
 require 'pjbank/client'
 
