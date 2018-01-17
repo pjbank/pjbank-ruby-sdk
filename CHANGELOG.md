@@ -1,3 +1,5 @@
 # Changelog
 
-## Next version
+## Próxima versão
+
+- Versão inicial com suporte às APIs sem conta digital

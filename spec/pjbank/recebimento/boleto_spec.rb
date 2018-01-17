@@ -114,6 +114,14 @@ RSpec.describe PJBank::Recebimento::Boleto do
         end
       end
 
+      context "when unauthorized error (504)" do
+        it "raises PJBank::RequestTimeout" do
+          VCR.use_cassette("recebimento/boleto/emitir/erro_504") do
+            expect { subject.emitir(dados) }.to raise_error(PJBank::RequestTimeout)
+          end
+        end
+      end
+
       context "when locked error (423)" do
         # É necessário que tenha emitido a pouco tempo um boleto com esse mesmo pedido_numero para simular esse erro.
         before { dados[:pedido_numero] = "8972" }
@@ -125,6 +133,23 @@ RSpec.describe PJBank::Recebimento::Boleto do
             fail
           end
         end
+      end
+    end
+  end
+
+  describe "#impressao" do
+    let(:dados) do
+      {
+        pedidos_numero: ["33215"]
+      }
+    end
+
+    # TODO: aguardar o servidor de sandbox parar de dar timeout para rodar o teste.
+    xit "returns the object with correct data" do
+      VCR.use_cassette("recebimento/boleto/impressao/sucesso") do
+        response = subject.impressao(dados)
+        expect(response.status).to eql("200")
+        expect(response.linkBoleto).to_not be_nil
       end
     end
   end

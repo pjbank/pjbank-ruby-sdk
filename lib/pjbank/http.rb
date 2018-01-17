@@ -3,6 +3,7 @@ require 'json'
 
 module PJBank
   RequestError = Class.new(Exception)
+  RequestTimeout = Class.new(Exception)
 
   class Http
     attr_reader :chave, :credencial
@@ -35,6 +36,8 @@ module PJBank
 
       OpenStruct.new(JSON.parse(response.body))
 
+      rescue RestClient::GatewayTimeout, RestClient::Exceptions::Timeout
+        raise RequestTimeout
       rescue RestClient::ExceptionWithResponse => e
         error!(e.response)
     end

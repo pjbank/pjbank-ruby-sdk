@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.pjbank.com.br/recebimentos/15524442a57788c4f3109c939056d821302155a9/transacoes
+    body:
+      encoding: UTF-8
+      string: '{"vencimento":"12/30/2019","valor":"1000.98","juros":"0.0","multa":"0.98","desconto":"9.58","nome_cliente":"Cliente
+        de exemplo","cpf_cliente":"62936576000112","endereco_cliente":"Rua Joaquim
+        Vilac","numero_cliente":509,"complemento_cliente":"","bairro_cliente":"Vila
+        Teixeira","cidade_cliente":"Campinas","estado_cliente":"SP","cep_cliente":"13301510","texto":"","grupo":"Boletos001"}'
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - pjbank-ruby-sdk/0.1.0
+      Content-Type:
+      - application/json
+      X-Chave:
+      - 027e30fbc768931e0682479e0f0404a0fcc8886b
+      Content-Length:
+      - '384'
+      Host:
+      - sandbox.pjbank.com.br
+  response:
+    status:
+      code: 504
+      message: Gateway Timeout
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '41'
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 17 Jan 2018 20:12:07 GMT
+      X-Amzn-Requestid:
+      - 9fc0a92a-fbc2-11e7-b7dd-1d4c4dc807b2
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Content-Type,Accept, X-CHAVE
+      Access-Control-Allow-Methods:
+      - DELETE,OPTIONS
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 045993dfee0ddfdc90bd5aebb22e9b23.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - dWuXGpDdrC4eFdWPAiEJLc49llJfozGuXnA0YJirbsg82uae4vChAA==
+    body:
+      encoding: UTF-8
+      string: '{"message": "Endpoint request timed out"}'
+    http_version: 
+  recorded_at: Wed, 17 Jan 2018 20:12:07 GMT
+recorded_with: VCR 4.0.0

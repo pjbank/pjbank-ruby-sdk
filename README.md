@@ -1,4 +1,5 @@
-# pjbank-ruby-sdk
+# pjbank
+
 PJBank SDK para Ruby! :diamonds: :diamonds: :diamonds:
 
 ![Construcao](https://openclipart.org/image/2400px/svg_to_png/231626/underconstruction.png)
@@ -8,7 +9,7 @@ PJBank SDK para Ruby! :diamonds: :diamonds: :diamonds:
 Adicione a linha abaixo ao Gemfile de sua applicação:
 
 ```ruby
-gem 'pjbank-ruby-sdk', '~> 0.1.0'
+gem 'pjbank', '~> 0.1.0'
 ```
 
 Em seguida execute:
@@ -20,7 +21,7 @@ $ bundle install
 Ou instale diretamente:
 
 ```
-$ gem install pjbank-ruby-sdk
+$ gem install pjbank
 ```
 
 ## Uso
@@ -32,9 +33,13 @@ app Rails.
 require 'pjbank'
 
 PJBank.configure do |config|
-  # "production" ou qualquer outro valor. Caso não seja "production" será utilizado o
-  # ambiente sandbox. O default é "production"
+  # Define o ambiente em que serão feitas as requisições. O valor padrão
+  # é "production". Pode ser definido como "production" ou qualquer outro
+  # valor. Caso não seja "production" será utilizado o ambiente sandbox.
   config.env = Rails.env
+  # Define o header User-Agent das requisições. O valor padrão
+  # é "pjbank-ruby-sdk/<versão>".
+  config.user_agent = "minha app/versão"
 end
 ```
 
@@ -102,3 +107,9 @@ response = client.recebimento.cartao.tokenizar(
   codigo_cvv:     "155"
 )
 ```
+
+### Erros
+
+Quando ocorrer um timeout, será levantado o erro `PJBank::RequestTimeout`.
+
+Outros erros, levantam um erro `PJBank::RequestError` que responde aos métodos `code`, `message` e `body`.
