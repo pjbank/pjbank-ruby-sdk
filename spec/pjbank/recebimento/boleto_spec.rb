@@ -150,4 +150,23 @@ RSpec.describe PJBank::Recebimento::Boleto do
       end
     end
   end
+
+  describe "#transacoes" do
+    it "returns all the transactions an array of objects" do
+      VCR.use_cassette("recebimento/boleto/transacoes/sem_filtro") do
+        resposta = subject.transacoes
+        expect(resposta).to be_an(Array)
+        expect(resposta.first).to be_an(OpenStruct)
+      end
+    end
+
+    context "when TODO: fazer um teste para cada grupo de filtros (sem filtro, efetivado, por data, paginado) e outro passando vários juntos" do
+      it "TODO" do
+        VCR.use_cassette("recebimento/boleto/transacoes/x") do
+          pending("TODO")
+          fail
+        end
+      end
+    end
+  end
 end

@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.pjbank.com.br/recebimentos/921803d24bb2da2eaebb95c96eae1dc2fd14797d/transacoes
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - my app/1.5.2
+      Content-Type:
+      - application/json
+      X-Chave:
+      - 108f8607a4d0db927a605e45254851a8d5a38e37
+      Host:
+      - sandbox.pjbank.com.br
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 18 Jan 2018 19:03:16 GMT
+      X-Amzn-Requestid:
+      - 3d293cc9-fc82-11e7-b9c0-531f315fe7fa
+      X-Amzn-Trace-Id:
+      - Root=1-5a60ef74-2d095ea36ff41d3534f97add
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 99c9f67869d77a26abed1c3a4b05cb92.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - ndEGT2ymvlTRnZ25BGmu6W-PyH8XnXd-RpCmONgrjQTjUXwgs2L0pQ==
+    body:
+      encoding: UTF-8
+      string: "[]"
+    http_version: 
+  recorded_at: Thu, 18 Jan 2018 19:03:16 GMT
+recorded_with: VCR 4.0.0

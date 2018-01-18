@@ -51,12 +51,14 @@ Para realizar chamadas, instancie um client (`PJBank::Client`), e chame os méto
   - [credenciamento](https://docs.pjbank.com.br/#eec6e8b5-3634-4e39-5bba-c37594afceda)
   - [emitir](https://docs.pjbank.com.br/#530279a2-bf8e-3af2-43c6-ff302845f0c0)
   - impressao: [normal](https://docs.pjbank.com.br/#11daeeab-fc33-ecc5-46e5-325b906796ed), [carne](https://docs.pjbank.com.br/#36c05fc4-0901-f3bb-077b-51178d9ce2b7)
+  - transacoes: [todas](https://docs.pjbank.com.br/#aeac7b38-1cda-cbdf-ced0-19fd031e43f6), [liquidadas](https://docs.pjbank.com.br/#a1f847d2-a1de-7aa2-fbd1-9b5b17aa94ea),
+  [filtradas por data](https://docs.pjbank.com.br/#c6946e68-3b94-ef66-3a00-f15128d478fe),
+  [paginadas](https://docs.pjbank.com.br/#2bff2e30-47e6-4571-e358-32f110de4f47)
 * [cartao](https://docs.pjbank.com.br/#80a47dce-f30f-f502-cde8-5ee829e42279)
   - [credenciamento](https://docs.pjbank.com.br/#6b249342-6376-925c-f920-0703069407f6)
   - [tokenizar](https://docs.pjbank.com.br/#af15c310-3778-5ecf-fe12-c0aa3f8376ed)
   - emitir: [usando token](https://docs.pjbank.com.br/#5732b1dd-4031-8018-8912-a79dd186cf76), [usando dados do cartão](https://docs.pjbank.com.br/#a4af3d03-7bd4-1afb-bc4e-082595db9374)
   - [cancelar](https://docs.pjbank.com.br/#3fc57c0d-4b60-331a-0e40-2fe2992e36c7)
-* [extrato](https://docs.pjbank.com.br/#32426ccf-1283-c2cc-4003-74bfb9764236)
   - transacoes: [todas](https://docs.pjbank.com.br/#aeac7b38-1cda-cbdf-ced0-19fd031e43f6), [liquidadas](https://docs.pjbank.com.br/#a1f847d2-a1de-7aa2-fbd1-9b5b17aa94ea),
   [filtradas por data](https://docs.pjbank.com.br/#c6946e68-3b94-ef66-3a00-f15128d478fe),
   [paginadas](https://docs.pjbank.com.br/#2bff2e30-47e6-4571-e358-32f110de4f47)

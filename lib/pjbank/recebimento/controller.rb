@@ -1,6 +1,5 @@
 require_relative 'boleto'
 require_relative 'cartao'
-require_relative 'extrato'
 
 module PJBank
   module Recebimento
@@ -17,10 +16,6 @@ module PJBank
 
       def cartao
         Recebimento::Cartao.new(http)
-      end
-
-      def extrato
-        Recebimento::Extrato.new(http)
       end
     end
   end

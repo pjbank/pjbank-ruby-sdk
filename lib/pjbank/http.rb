@@ -28,7 +28,7 @@ module PJBank
 
       response = RestClient::Request.execute(options.merge!({
         method:  method,
-        url:     "#{PJBank.configuracao.url}#{path}".gsub(':credencial', credencial.to_s),
+        url:     define_url(path),
         headers: {
           "Content-Type" => "application/json",
           "X-CHAVE"      => chave,
@@ -37,12 +37,22 @@ module PJBank
         }
       }))
 
-      OpenStruct.new(JSON.parse(response.body))
+      # TODO: testar isso
+      parsed_response = JSON.parse(response.body)
+      if parsed_response.is_a?(Array)
+        parsed_response.map { |i| OpenStruct.new(i) }
+      else
+        OpenStruct.new(parsed_response)
+      end
 
       rescue RestClient::GatewayTimeout, RestClient::Exceptions::Timeout
         raise RequestTimeout
       rescue RestClient::ExceptionWithResponse => e
         error!(e.response)
+    end
+
+    def define_url(path)
+      "#{PJBank.configuracao.url}#{path}".gsub(':credencial', credencial.to_s)
     end
 
     def error!(response)
