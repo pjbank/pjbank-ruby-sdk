@@ -10,10 +10,6 @@ module PJBank
       def tokenizar(dados)
         http.post("#{base_url_path}/:credencial/tokens", { payload: dados })
       end
-
-      def cancelar(tid)
-        http.delete("#{base_url_path}/:credencial/transacoes/#{tid}")
-      end
     end
   end
 end

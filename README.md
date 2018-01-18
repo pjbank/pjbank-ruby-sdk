@@ -50,6 +50,7 @@ Para realizar chamadas, instancie um client (`PJBank::Client`), e chame os méto
 * [boleto](https://docs.pjbank.com.br/#820dd8c7-79e5-4df8-c413-ab195362d311)
   - [credenciamento](https://docs.pjbank.com.br/#eec6e8b5-3634-4e39-5bba-c37594afceda)
   - [emitir](https://docs.pjbank.com.br/#530279a2-bf8e-3af2-43c6-ff302845f0c0)
+  - [cancelar](https://docs.pjbank.com.br/#f5d4ff03-ecd6-0134-dfad-ec8a55e64e4c)
   - impressao: [normal](https://docs.pjbank.com.br/#11daeeab-fc33-ecc5-46e5-325b906796ed), [carne](https://docs.pjbank.com.br/#36c05fc4-0901-f3bb-077b-51178d9ce2b7)
   - transacoes: [todas](https://docs.pjbank.com.br/#aeac7b38-1cda-cbdf-ced0-19fd031e43f6), [liquidadas](https://docs.pjbank.com.br/#a1f847d2-a1de-7aa2-fbd1-9b5b17aa94ea),
   [filtradas por data](https://docs.pjbank.com.br/#c6946e68-3b94-ef66-3a00-f15128d478fe),

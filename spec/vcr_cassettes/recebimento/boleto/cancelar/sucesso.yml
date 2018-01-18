@@ -1,8 +1,8 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://sandbox.pjbank.com.br/recebimentos/15524442a57788c4f3109c939056d821302155a9/transacoes
+    method: delete
+    uri: https://sandbox.pjbank.com.br/recebimentos/15524442a57788c4f3109c939056d821302155a9/transacoes/99998888
     body:
       encoding: US-ASCII
       string: ''
@@ -27,24 +27,26 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '2'
+      - '77'
       Connection:
       - keep-alive
       Date:
-      - Thu, 18 Jan 2018 19:03:15 GMT
+      - Thu, 18 Jan 2018 19:22:23 GMT
       X-Amzn-Requestid:
-      - 3ca16ec9-fc82-11e7-b7dd-1d4c4dc807b2
+      - e8700f0b-fc84-11e7-b59f-117195f046f9
       X-Amzn-Trace-Id:
-      - Root=1-5a60ef73-6f9b65c37b56497186a73cd3
+      - Root=1-5a60f3ee-462c1e7cc1bdf0a4985b4924
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 4a2c68e38b445be45864e74cb554f7eb.cloudfront.net (CloudFront)
+      - 1.1 85859f9f2fc88bd0eb1c0386f38f2789.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - _hIEOwx-7fWmGg7WuHiNrmLQXbhXG-aezizPc167mLudvOM9rxizBg==
+      - y0x2Q_YnfwCrNWlnnsHq-czH47MC0SJ0rfZLrIbFh0E6SxSi7uzQpA==
     body:
-      encoding: UTF-8
-      string: "[]"
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAgInN0YXR1cyI6ICIyMDAiLAogICAgIm1zZyI6ICJDb2JyYW7Dp2Eg
+        MzM3MDEgaW52YWxpZGFkYSBjb20gc3VjZXNzby4iCn0=
     http_version: 
-  recorded_at: Thu, 18 Jan 2018 19:03:15 GMT
+  recorded_at: Thu, 18 Jan 2018 19:22:23 GMT
 recorded_with: VCR 4.0.0

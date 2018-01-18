@@ -15,6 +15,10 @@ module PJBank
         http.get("#{base_url_path}/:credencial/transacoes", params)
       end
 
+      def cancelar(id)
+        http.delete("#{base_url_path}/:credencial/transacoes/#{id}")
+      end
+
       private
 
       def base_url_path
