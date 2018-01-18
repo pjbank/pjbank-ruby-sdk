@@ -18,6 +18,7 @@ RSpec.describe PJBank::Http do
             "Content-Type" => "application/json",
             "X-CHAVE"      => "9c682cda1",
             "User-Agent"   => "my app/1.5.2",
+            params:        {},
           }
         ).and_return(double(code: 200, body: '{"status":200}'))
 
@@ -49,6 +50,20 @@ RSpec.describe PJBank::Http do
           expect(error.message).to eql("Alguma falha de validação.")
           expect(error.body).to eql({ "status" => 500, "msg" => "Alguma falha de validação." })
         end
+      end
+    end
+
+    context "when :params option is given" do
+      it "returns an object that responds for the body attributes" do
+        expect(RestClient::Request).to receive(:execute).with(
+            hash_including(headers: hash_including(params: { data_inicio: "19/05/2018" }))
+          ).
+          and_return(double(code: 200, body: '{"status":200,"msg":"Sucesso."}'))
+
+        result = subject.send(method, "/resource", params: { data_inicio: "19/05/2018" } )
+        expect(result).to be_a(OpenStruct)
+        expect(result.status).to eql(200)
+        expect(result.msg).to eql("Sucesso.")
       end
     end
   end

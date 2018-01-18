@@ -8,10 +8,10 @@ RSpec.describe PJBank::Recebimento::Extrato do
 
   subject { described_class.new(http) }
 
-  describe "#pagamentos" do
-    context "when no params" do
+  describe "#transacoes" do
+    context "when TODO: fazer um teste para cada grupo de filtros (sem filtro, efetivado, por data, paginado) e outro passando vários juntos" do
       it "TODO" do
-        VCR.use_cassette("recebimento/extrato/pagamentos/no_params") do
+        VCR.use_cassette("recebimento/extrato/transacoes/x") do
           pending("TODO")
           fail
         end

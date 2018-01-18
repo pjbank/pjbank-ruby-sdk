@@ -57,10 +57,9 @@ Para realizar chamadas, instancie um client (`PJBank::Client`), e chame os méto
   - emitir: [usando token](https://docs.pjbank.com.br/#5732b1dd-4031-8018-8912-a79dd186cf76), [usando dados do cartão](https://docs.pjbank.com.br/#a4af3d03-7bd4-1afb-bc4e-082595db9374)
   - [cancelar](https://docs.pjbank.com.br/#3fc57c0d-4b60-331a-0e40-2fe2992e36c7)
 * [extrato](https://docs.pjbank.com.br/#32426ccf-1283-c2cc-4003-74bfb9764236)
-  - [pagamentos](https://docs.pjbank.com.br/#aeac7b38-1cda-cbdf-ced0-19fd031e43f6)
-  - [pagamentos_liquidados](https://docs.pjbank.com.br/#a1f847d2-a1de-7aa2-fbd1-9b5b17aa94ea)
-  - [pagamentos_filtrados](https://docs.pjbank.com.br/#c6946e68-3b94-ef66-3a00-f15128d478fe)
-  - [pagamentos_paginados](https://docs.pjbank.com.br/#2bff2e30-47e6-4571-e358-32f110de4f47)
+  - transacoes: [todas](https://docs.pjbank.com.br/#aeac7b38-1cda-cbdf-ced0-19fd031e43f6), [liquidadas](https://docs.pjbank.com.br/#a1f847d2-a1de-7aa2-fbd1-9b5b17aa94ea),
+  [filtradas por data](https://docs.pjbank.com.br/#c6946e68-3b94-ef66-3a00-f15128d478fe),
+  [paginadas](https://docs.pjbank.com.br/#2bff2e30-47e6-4571-e358-32f110de4f47)
 
 ### Exemplos
 

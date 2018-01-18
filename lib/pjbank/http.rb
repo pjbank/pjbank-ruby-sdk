@@ -21,8 +21,10 @@ module PJBank
 
     private
 
+    # TODO: refatorar esse método quando TODOS testes estiverem rodando sem problema.
     def send_request(method, path, options)
       options[:payload] = options[:payload].to_json if options[:payload]
+      query_params = options.delete(:params) || {}
 
       response = RestClient::Request.execute(options.merge!({
         method:  method,
@@ -31,6 +33,7 @@ module PJBank
           "Content-Type" => "application/json",
           "X-CHAVE"      => chave,
           "User-Agent"   => PJBank.configuracao.user_agent,
+          params:           query_params,
         }
       }))
 

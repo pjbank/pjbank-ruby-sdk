@@ -2,25 +2,12 @@ require_relative 'base'
 
 module PJBank
   module Recebimento
+    # TODO: tem que fazer testes (ou contactar o suporte) para confirmar como se comporta esse extrato, visto que só tem
+    # exemplos usando a credencial de cartão. Se for individual para cada credencial, faz mais sentido que esse método
+    # esteja em cada uma das classes, por exemplo, PJBank::Boleto.extrato e PJBank::Cartao.extrato
     class Extrato < Base
-      # TODO: Melhorar essa interface. Está bem ruim, pois não temos como mesclar os parâmetros, por exemplo, quero os
-      # pagamentos efetivados, de 01/10/2017 até 31/12/2017, na página 2. Também não tem como pegar os pagamentos não
-      # efetuados (pago=0), o ideal seria ter um método só que recebe os parâmetros.
-
-      def pagamentos
-        http.get("#{base_url_path}/transacoes")
-      end
-
-      def pagamentos_liquidados
-        http.get("#{base_url_path}/transacoes?pago=1")
-      end
-
-      def pagamentos_filtrados(dados)
-        http.get("#{base_url_path}/transacoes?data_inicio=#{dados[:data_inicio]}&data_fim=#{dados[:data_fim]}")
-      end
-
-      def pagamentos_paginados(dados)
-        http.get("#{base_url_path}/transacoes?pagina=#{aut[:pagina]}")
+      def transacoes(params={})
+        http.get("#{base_url_path}/transacoes", params)
       end
     end
   end
