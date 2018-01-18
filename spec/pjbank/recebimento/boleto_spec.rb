@@ -139,13 +139,10 @@ RSpec.describe PJBank::Recebimento::Boleto do
 
   describe "#impressao" do
     let(:dados) do
-      {
-        pedidos_numero: ["33215"]
-      }
+      { pedidos_numero: ["33215"] }
     end
 
-    # TODO: aguardar o servidor de sandbox parar de dar timeout para rodar o teste.
-    xit "returns the object with correct data" do
+    it "returns the object with correct data" do
       VCR.use_cassette("recebimento/boleto/impressao/sucesso") do
         response = subject.impressao(dados)
         expect(response.status).to eql("200")

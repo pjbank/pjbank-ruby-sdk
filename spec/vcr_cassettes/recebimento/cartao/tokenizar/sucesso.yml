@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.pjbank.com.br/recebimentos/921803d24bb2da2eaebb95c96eae1dc2fd14797d/tokens
+    body:
+      encoding: UTF-8
+      string: '{"nome_cartao":"Fulano da silva","numero_cartao":"4318148832046011","mes_vencimento":"01","ano_vencimento":"2019","codigo_cvv":"155","cpf_cartao":"12345678909","email_cartao":"pjbank-ruby-sdk@mailinator.com","celular_cartao":"988225511"}'
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - pjbank-ruby-sdk/0.1.0
+      Content-Type:
+      - application/json
+      X-Chave:
+      - 108f8607a4d0db927a605e45254851a8d5a38e37
+      Content-Length:
+      - '237'
+      Host:
+      - sandbox.pjbank.com.br
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '122'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 18 Jan 2018 18:04:25 GMT
+      X-Amzn-Requestid:
+      - 046fe161-fc7a-11e7-ba45-3d1bd7fd35f8
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Amzn-Trace-Id:
+      - Root=1-5a60e1a8-41f475e6b706688caba13d47
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 6a5c800c7461352cf3c0abd4ca7b1c70.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - tI3lRLqMa_58pbJV4TxmkpsYjxDu0fE9Wemlw7OgCaLKy6yCCHcLHg==
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "status": "201",
+            "token_cartao": "9c87d346e54aada76f3751ae9f686bd01c65839c",
+            "msg": "Sucesso ao tokenizar"
+        }
+    http_version: 
+  recorded_at: Thu, 18 Jan 2018 18:04:25 GMT
+recorded_with: VCR 4.0.0

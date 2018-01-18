@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.pjbank.com.br/recebimentos/921803d24bb2da2eaebb95c96eae1dc2fd14797d/transacoes
+    body:
+      encoding: UTF-8
+      string: '{"token_cartao":"9c87d346e54aada76f3751ae9f686bd01c65839c","valor":"10","parcelas":"2","descricao_pagamento":"Pagamento
+        de teste"}'
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - pjbank-ruby-sdk/0.1.0
+      Content-Type:
+      - application/json
+      X-Chave:
+      - 108f8607a4d0db927a605e45254851a8d5a38e37
+      Content-Length:
+      - '130'
+      Host:
+      - sandbox.pjbank.com.br
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '181'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 18 Jan 2018 18:07:26 GMT
+      X-Amzn-Requestid:
+      - 6ff0c89d-fc7a-11e7-b423-4bfd51f53158
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Amzn-Trace-Id:
+      - Root=1-5a60e25d-f87414f03b9bd02002efc48d
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 65e599e955a5eeae4c56b976c42dda07.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - B-560J7KlpbuWPOxIyOpkwBmOKk36azUqEvWl653YlfxOIV9SM5LdQ==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAgInN0YXR1cyI6ICI0MDYiLAogICAgIm1zZyI6ICJDb250YSBkZSBj
+        YXJ0w6NvIGVzdMOhIHBlbmRlbnRlIGRlIGFwcm92YcOnw6NvLiBOb3NzYSBl
+        cXVpcGUgZXN0w6EgYXZhbGlhbmRvIG8gY2FkYXN0cm8gZSBsaGUgbm90aWZp
+        Y2Fyw6EgcXVhbmRvIG8gcHJvY2Vzc28gZXN0aXZlciBmaW5hbGl6YWRvLiIK
+        fQ==
+    http_version: 
+  recorded_at: Thu, 18 Jan 2018 18:07:26 GMT
+recorded_with: VCR 4.0.0

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 RSpec.describe PJBank::Recebimento::Cartao do
-  let(:credencial) { "1264e7bea04bb1c24b07ace759f64a1bd65c8560" }
-  let(:chave)      { "ef947cf5867488f744b82744dd3a8fc4852e529f" }
+  let(:credencial) { "921803d24bb2da2eaebb95c96eae1dc2fd14797d" }
+  let(:chave)      { "108f8607a4d0db927a605e45254851a8d5a38e37" }
 
   let(:http) { PJBank::Http.new(credencial: credencial, chave: chave) }
 
@@ -24,9 +24,8 @@ RSpec.describe PJBank::Recebimento::Cartao do
       }
     end
 
-    # TODO: aguardar o servidor de sandbox parar de dar timeout para rodar o teste.
     context "when success" do
-      xit "returns the object with correct data" do
+      it "returns the object with correct data" do
         VCR.use_cassette("recebimento/cartao/credenciamento/sucesso") do
           response = subject.credenciamento(dados)
           expect(response.status).to eql("201")
@@ -40,12 +39,11 @@ RSpec.describe PJBank::Recebimento::Cartao do
       context "when validation error (400)" do
         before { dados[:cnpj] = "" }
 
-        # TODO: aguardar o servidor de sandbox parar de dar timeout para rodar o teste.
-        xit "raises PJBank::RequestError" do
+        it "raises PJBank::RequestError" do
           VCR.use_cassette("recebimento/cartao/credenciamento/erro_400") do
             expect { subject.credenciamento(dados) }.to raise_error do |error|
               expect(error).to be_a(PJBank::RequestError)
-              expect(error.message).to eql("CPF/CNPJ inválido.")
+              expect(error.message).to eql("CNPJ inválido.")
               expect(error.code).to eql(400)
             end
           end
@@ -68,9 +66,8 @@ RSpec.describe PJBank::Recebimento::Cartao do
       }
     end
 
-    # TODO: aguardar o servidor de sandbox parar de dar timeout para rodar o teste.
     context "when success" do
-      xit "returns the object with correct data" do
+      it "returns the object with correct data" do
         VCR.use_cassette("recebimento/cartao/tokenizar/sucesso") do
           response = subject.tokenizar(dados)
           expect(response.status).to eql("201")
@@ -79,15 +76,12 @@ RSpec.describe PJBank::Recebimento::Cartao do
       end
     end
 
-    # TODO: aguardar o servidor de sandbox parar de dar timeout para rodar o teste.
     context "when failure" do
-      before { dados[:numero_catao] = "" }
-
-      xit "raises PJBank::RequestError" do
+      it "raises PJBank::RequestError" do
         VCR.use_cassette("recebimento/cartao/tokenizar/error") do
-          expect { subject.tokenizar(dados) }.to raise_error do |error|
+          expect { subject.tokenizar({}) }.to raise_error do |error|
             expect(error).to be_a(PJBank::RequestError)
-            expect(error.message).to eql("TODO")
+            expect(error.message).to eql("Cartão inválido.")
             expect(error.code).to eql(400)
           end
         end
@@ -99,15 +93,15 @@ RSpec.describe PJBank::Recebimento::Cartao do
     context "when using token" do
       let(:dados) do
         {
-          token_cartao:        "a8acb8de818d428844fee52a48ea3b075d8c9f0e",
+          token_cartao:        "9c87d346e54aada76f3751ae9f686bd01c65839c",
           valor:               "10",
           parcelas:            "2",
           descricao_pagamento: "Pagamento de teste",
         }
       end
 
-      # TODO: aguardar o servidor de sandbox parar de dar timeout para rodar o teste.
       context "when success" do
+        # TODO: aguardar liberarem a credencial de cartão para poder rodar os testes
         xit "returns the object with correct data" do
           VCR.use_cassette("recebimento/cartao/emitir/com_token/sucesso") do
             response = subject.emitir(dados)
@@ -117,16 +111,33 @@ RSpec.describe PJBank::Recebimento::Cartao do
         end
       end
 
-      # TODO: aguardar o servidor de sandbox parar de dar timeout para rodar o teste.
       context "when failure" do
-        before { dados[:valor] = "" }
+        # TODO: aguardar liberarem a credencial de cartão para poder rodar os testes
+        context "when validation error" do
+          xit "raises PJBank::RequestError" do
+            dados[:valor] = ""
 
-        xit "raises PJBank::RequestError" do
-          VCR.use_cassette("recebimento/cartao/emitir/com_token/erro") do
-            expect { subject.emitir(dados) }.to raise_error do |error|
-              expect(error).to be_a(PJBank::RequestError)
-              expect(error.message).to eql("TODO")
-              expect(error.code).to eql(400)
+            VCR.use_cassette("recebimento/cartao/emitir/com_token/erro_400") do
+              expect { subject.emitir(dados) }.to raise_error do |error|
+                expect(error).to be_a(PJBank::RequestError)
+                expect(error.message).to eql("TODO")
+                expect(error.code).to eql(400)
+              end
+            end
+          end
+        end
+
+        context "when credentia is no available yet" do
+          xit "raises PJBank::RequestError" do
+            # É necessária uma usar uma credencial ainda não liberada para simular esse erro
+            VCR.use_cassette("recebimento/cartao/emitir/com_token/erro_406") do
+              expect { subject.emitir(dados) }.to raise_error do |error|
+                pending("Na verdade está sendo retornado o status http 200, mas deveria ser 406. Aguardando posição do suporte")
+                expect(error).to be_a(PJBank::RequestError)
+                expect(error.message).to eql("Conta de cartão está pendente de aprovação. Nossa equipe está avaliando o cadastro e lhe notificará quando o processo estiver finalizado.")
+                expect(error.code).to eql(406)
+                fail
+              end
             end
           end
         end
@@ -150,7 +161,7 @@ RSpec.describe PJBank::Recebimento::Cartao do
         }
       end
 
-      # TODO: aguardar o servidor de sandbox parar de dar timeout para rodar o teste.
+      # TODO: aguardar liberarem a credencial de cartão para poder rodar os testes
       context "when success" do
         xit "returns the object with correct data" do
           VCR.use_cassette("recebimento/cartao/emitir/com_cartao/sucesso") do
@@ -161,7 +172,7 @@ RSpec.describe PJBank::Recebimento::Cartao do
         end
       end
 
-      # TODO: aguardar o servidor de sandbox parar de dar timeout para rodar o teste.
+      # TODO: aguardar liberarem a credencial de cartão para poder rodar os testes
       context "when failure" do
         before { dados[:valor] = "" }
 
@@ -179,7 +190,7 @@ RSpec.describe PJBank::Recebimento::Cartao do
   end
 
   describe "#cancelar" do
-    # TODO: aguardar o servidor de sandbox parar de dar timeout para rodar o teste.
+    # TODO: aguardar liberarem a credencial de cartão para poder rodar os testes
     context "when success" do
       xit "returns the object with correct data" do
         VCR.use_cassette("recebimento/cartao/cancelar/sucesso") do
@@ -189,7 +200,7 @@ RSpec.describe PJBank::Recebimento::Cartao do
       end
     end
 
-    # TODO: aguardar o servidor de sandbox parar de dar timeout para rodar o teste.
+    # TODO: aguardar liberarem a credencial de cartão para poder rodar os testes
     context "when failure" do
       xit "raises PJBank::RequestError" do
         VCR.use_cassette("recebimento/cartao/cancelar/error") do

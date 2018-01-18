@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.pjbank.com.br/recebimentos/921803d24bb2da2eaebb95c96eae1dc2fd14797d/tokens
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - pjbank-ruby-sdk/0.1.0
+      Content-Type:
+      - application/json
+      X-Chave:
+      - 108f8607a4d0db927a605e45254851a8d5a38e37
+      Content-Length:
+      - '2'
+      Host:
+      - sandbox.pjbank.com.br
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '56'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 18 Jan 2018 18:06:14 GMT
+      X-Amzn-Requestid:
+      - 45d13e77-fc7a-11e7-a71d-452921d147bb
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Amzn-Trace-Id:
+      - Root=1-5a60e216-425211b42629058a9f924006
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 4251da4481948b0ac3a8deec1d24db31.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 3rmilvcn3qaK7bZCtNB9XONoxUbP8B8NWXNZtXpXOwa_vV5LG6Y8YQ==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAgIm1zZyI6ICJDYXJ0w6NvIGludsOhbGlkby4iLAogICAgInN0YXR1
+        cyI6ICI0MDAiCn0=
+    http_version: 
+  recorded_at: Thu, 18 Jan 2018 18:06:14 GMT
+recorded_with: VCR 4.0.0
