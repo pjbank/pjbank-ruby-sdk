@@ -59,7 +59,7 @@ module PJBank
       body = JSON.parse(response.body) rescue {}
       raise RequestError.new(
         code:    response.code,
-        message: body["msg"],
+        message: body["msg"] || body["message"],
         body:    body
       )
     end

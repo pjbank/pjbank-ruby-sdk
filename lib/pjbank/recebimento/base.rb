@@ -12,7 +12,7 @@ module PJBank
       end
 
       def transacoes(params={})
-        http.get("#{base_url_path}/:credencial/transacoes", params)
+        http.get("#{base_url_path}/:credencial/transacoes", params: params)
       end
 
       def cancelar(id)

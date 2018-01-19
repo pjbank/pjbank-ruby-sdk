@@ -2,10 +2,11 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.pjbank.com.br/recebimentos/1264e7bea04bb1c24b07ace759f64a1bd65c8560/tokens
+    uri: https://api.pjbank.com.br/recebimentos/1264e7bea04bb1c24b07ace759f64a1bd65c8560/transacoes
     body:
       encoding: UTF-8
-      string: "{}"
+      string: '{"token_cartao":"26357b6566b2dce3217701ec9f3215ffd30e2324","valor":"","parcelas":"2","descricao_pagamento":"Pagamento
+        de teste"}'
     headers:
       Accept:
       - "*/*"
@@ -18,7 +19,7 @@ http_interactions:
       X-Chave:
       - ef947cf5867488f744b82744dd3a8fc4852e529f
       Content-Length:
-      - '2'
+      - '128'
       Host:
       - api.pjbank.com.br
   response:
@@ -29,28 +30,28 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '56'
+      - '53'
       Connection:
       - keep-alive
       Date:
-      - Fri, 19 Jan 2018 12:52:13 GMT
+      - Fri, 19 Jan 2018 12:54:24 GMT
       X-Amzn-Requestid:
-      - 9208ba1c-fd17-11e7-bba4-f36cbe9eb1cc
+      - e051c5cf-fd17-11e7-bcd5-bf075e2b4d00
       Access-Control-Allow-Origin:
       - "*"
       X-Amzn-Trace-Id:
-      - Root=1-5a61e9fd-32fb721e450b26e834f12997
+      - Root=1-5a61ea80-ee87138779f5a243b8707675
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 9c6ab71444c32e453beef6430f290272.cloudfront.net (CloudFront)
+      - 1.1 d72357df15e9935c6887a4aac121c50d.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - kV6ehUOxztOTdRqe0Uho39LMHQk7t84XVEpeefpCOY2MKwPv05fStA==
+      - 8zQl8lOOj4v1bDQZeDjxuup0ypO0fJaCrCLd7_SYYp2rs0C-mnAoAg==
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        ewogICAgIm1zZyI6ICJDYXJ0w6NvIGludsOhbGlkby4iLAogICAgInN0YXR1
-        cyI6ICI0MDAiCn0=
+        ewogICAgInN0YXR1cyI6ICI0MDAiLAogICAgIm1zZyI6ICJWYWxvciBpbnbD
+        oWxpZG8iCn0=
     http_version: 
-  recorded_at: Fri, 19 Jan 2018 12:52:13 GMT
+  recorded_at: Fri, 19 Jan 2018 12:54:25 GMT
 recorded_with: VCR 4.0.0

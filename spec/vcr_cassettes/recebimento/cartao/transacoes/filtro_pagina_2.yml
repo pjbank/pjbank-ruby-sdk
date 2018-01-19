@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.pjbank.com.br/recebimentos/1264e7bea04bb1c24b07ace759f64a1bd65c8560/transacoes?data_fim=08/20/2017&data_inicio=08/20/2017&pagina=2&pago=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - pjbank-ruby-sdk/0.1.0
+      Content-Type:
+      - application/json
+      X-Chave:
+      - ef947cf5867488f744b82744dd3a8fc4852e529f
+      Host:
+      - api.pjbank.com.br
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 19 Jan 2018 14:17:10 GMT
+      X-Amzn-Requestid:
+      - 70222d7b-fd23-11e7-bba4-f36cbe9eb1cc
+      X-Amzn-Trace-Id:
+      - Root=1-5a61fde6-8fca991e6e93ce3bff3722da
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 fc45926665ff27c35bd71fc61dc20b1c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - K-yt9wcLzWAxLJqtmgBar-RGPDdfz8I_Qr45027cVZAIJM3Z2D0vUg==
+    body:
+      encoding: UTF-8
+      string: "[]"
+    http_version: 
+  recorded_at: Fri, 19 Jan 2018 14:17:10 GMT
+recorded_with: VCR 4.0.0

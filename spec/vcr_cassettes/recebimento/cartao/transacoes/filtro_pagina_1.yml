@@ -1,0 +1,188 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.pjbank.com.br/recebimentos/1264e7bea04bb1c24b07ace759f64a1bd65c8560/transacoes?data_fim=08/20/2017&data_inicio=08/20/2017&pago=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - pjbank-ruby-sdk/0.1.0
+      Content-Type:
+      - application/json
+      X-Chave:
+      - ef947cf5867488f744b82744dd3a8fc4852e529f
+      Host:
+      - api.pjbank.com.br
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '4066'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 19 Jan 2018 14:17:04 GMT
+      X-Amzn-Requestid:
+      - 6c683233-fd23-11e7-aec8-a7d65bc1109d
+      X-Amzn-Trace-Id:
+      - Root=1-5a61fde0-a22d95c52671981c367350bc
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 9bbbff89f390d986abe444b87e2a36d6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - vvHspQ0xnQTccCzAB1yOlH8VYoSjis0jCznmgw3ERQ1KU7RZP_EGpw==
+    body:
+      encoding: UTF-8
+      string: |-
+        [
+            {
+                "tid": "2017000006910010801039",
+                "valor": "1",
+                "valor_liquido": "0.93",
+                "pedido_numero": "",
+                "autorizada": "1",
+                "cancelada": "0",
+                "parcelas": "1",
+                "data_transacao": "08\/20\/2017",
+                "data_cancelamento": "",
+                "motivo_cancelamento": "",
+                "previsao_credito": "09\/21\/2017",
+                "convenio_proprio": "",
+                "tid_conciliacao": "1006993069000AD82A8A",
+                "msg_erro": "",
+                "msg_erro_estorno": ""
+            },
+            {
+                "tid": "2017000006910010801040",
+                "valor": "1",
+                "valor_liquido": "0.93",
+                "pedido_numero": "",
+                "autorizada": "1",
+                "cancelada": "0",
+                "parcelas": "1",
+                "data_transacao": "08\/20\/2017",
+                "data_cancelamento": "",
+                "motivo_cancelamento": "",
+                "previsao_credito": "09\/21\/2017",
+                "convenio_proprio": "",
+                "tid_conciliacao": "1006993069000AD82A9A",
+                "msg_erro": "",
+                "msg_erro_estorno": ""
+            },
+            {
+                "tid": "2017000006910010801044",
+                "valor": "1",
+                "valor_liquido": "0.93",
+                "pedido_numero": "",
+                "autorizada": "1",
+                "cancelada": "0",
+                "parcelas": "1",
+                "data_transacao": "08\/20\/2017",
+                "data_cancelamento": "",
+                "motivo_cancelamento": "",
+                "previsao_credito": "09\/21\/2017",
+                "convenio_proprio": "",
+                "tid_conciliacao": "1006993069000AD82ACA",
+                "msg_erro": "",
+                "msg_erro_estorno": ""
+            },
+            {
+                "tid": "2017000006910010801045",
+                "valor": "1",
+                "valor_liquido": "0.93",
+                "pedido_numero": "",
+                "autorizada": "1",
+                "cancelada": "0",
+                "parcelas": "1",
+                "data_transacao": "08\/20\/2017",
+                "data_cancelamento": "",
+                "motivo_cancelamento": "",
+                "previsao_credito": "09\/21\/2017",
+                "convenio_proprio": "",
+                "tid_conciliacao": "1006993069000AD82ADA",
+                "msg_erro": "",
+                "msg_erro_estorno": ""
+            },
+            {
+                "tid": "2017000006910010801049",
+                "valor": "1",
+                "valor_liquido": "0.93",
+                "pedido_numero": "",
+                "autorizada": "1",
+                "cancelada": "0",
+                "parcelas": "1",
+                "data_transacao": "08\/20\/2017",
+                "data_cancelamento": "",
+                "motivo_cancelamento": "",
+                "previsao_credito": "09\/21\/2017",
+                "convenio_proprio": "",
+                "tid_conciliacao": "1006993069000AD82B0A",
+                "msg_erro": "",
+                "msg_erro_estorno": ""
+            },
+            {
+                "tid": "2017000006910010801052",
+                "valor": "1",
+                "valor_liquido": "0.93",
+                "pedido_numero": "",
+                "autorizada": "1",
+                "cancelada": "0",
+                "parcelas": "1",
+                "data_transacao": "08\/20\/2017",
+                "data_cancelamento": "",
+                "motivo_cancelamento": "",
+                "previsao_credito": "09\/21\/2017",
+                "convenio_proprio": "",
+                "tid_conciliacao": "1006993069000AD82B1A",
+                "msg_erro": "",
+                "msg_erro_estorno": ""
+            },
+            {
+                "tid": "2017000006910010801054",
+                "valor": "1",
+                "valor_liquido": "0.93",
+                "pedido_numero": "",
+                "autorizada": "1",
+                "cancelada": "0",
+                "parcelas": "1",
+                "data_transacao": "08\/20\/2017",
+                "data_cancelamento": "",
+                "motivo_cancelamento": "",
+                "previsao_credito": "09\/21\/2017",
+                "convenio_proprio": "",
+                "tid_conciliacao": "1006993069000AD82B3A",
+                "msg_erro": "",
+                "msg_erro_estorno": ""
+            },
+            {
+                "tid": "2017000006910010801055",
+                "valor": "1",
+                "valor_liquido": "0.93",
+                "pedido_numero": "",
+                "autorizada": "1",
+                "cancelada": "0",
+                "parcelas": "1",
+                "data_transacao": "08\/20\/2017",
+                "data_cancelamento": "",
+                "motivo_cancelamento": "",
+                "previsao_credito": "09\/21\/2017",
+                "convenio_proprio": "",
+                "tid_conciliacao": "1006993069000AD82B5A",
+                "msg_erro": "",
+                "msg_erro_estorno": ""
+            }
+        ]
+    http_version: 
+  recorded_at: Fri, 19 Jan 2018 14:17:04 GMT
+recorded_with: VCR 4.0.0

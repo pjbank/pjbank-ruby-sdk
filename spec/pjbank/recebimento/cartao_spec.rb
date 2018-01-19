@@ -1,14 +1,22 @@
 require 'spec_helper'
 
 RSpec.describe PJBank::Recebimento::Cartao do
-  let(:credencial) { "921803d24bb2da2eaebb95c96eae1dc2fd14797d" }
-  let(:chave)      { "108f8607a4d0db927a605e45254851a8d5a38e37" }
+  # Credenciais para testes em ambiente de produção
+  let(:credencial) { "1264e7bea04bb1c24b07ace759f64a1bd65c8560" }
+  let(:chave)      { "ef947cf5867488f744b82744dd3a8fc4852e529f" }
 
   let(:http) { PJBank::Http.new(credencial: credencial, chave: chave) }
 
   subject { described_class.new(http) }
 
+  # Estamos usando o ambiente de produção para fazer os testes de cartão porque é como está instruído na documentação da
+  # API (https://docs.pjbank.com.br/#80a47dce-f30f-f502-cde8-5ee829e42279). Apenas os testes de credenciamento estão
+  # sendo feitos no ambiente de sandbox.
+  before(:each) { PJBank.configuracao.env = "production" }
+
   describe "#credenciamento" do
+    before(:each) { PJBank.configuracao.env = "sandbox" }
+
     let(:http) { PJBank::Http.new }
 
     let(:dados) do
@@ -56,10 +64,10 @@ RSpec.describe PJBank::Recebimento::Cartao do
     let(:dados) do
       {
         nome_cartao:    "Fulano da silva",
-        numero_cartao:  "4318148832046011",
-        mes_vencimento: "01",
-        ano_vencimento: "2019",
-        codigo_cvv:     "155",
+        numero_cartao:  "4012001037141112",
+        mes_vencimento: "05",
+        ano_vencimento: "2018",
+        codigo_cvv:     "123",
         cpf_cartao:     "12345678909",
         email_cartao:   "pjbank-ruby-sdk@mailinator.com",
         celular_cartao: "988225511",
@@ -93,7 +101,7 @@ RSpec.describe PJBank::Recebimento::Cartao do
     context "when using token" do
       let(:dados) do
         {
-          token_cartao:        "9c87d346e54aada76f3751ae9f686bd01c65839c",
+          token_cartao:        "26357b6566b2dce3217701ec9f3215ffd30e2324",
           valor:               "10",
           parcelas:            "2",
           descricao_pagamento: "Pagamento de teste",
@@ -101,8 +109,7 @@ RSpec.describe PJBank::Recebimento::Cartao do
       end
 
       context "when success" do
-        # TODO: aguardar liberarem a credencial de cartão para poder rodar os testes
-        xit "returns the object with correct data" do
+        it "returns the object with correct data" do
           VCR.use_cassette("recebimento/cartao/emitir/com_token/sucesso") do
             response = subject.emitir(dados)
             expect(response.status).to eql("201")
@@ -112,15 +119,14 @@ RSpec.describe PJBank::Recebimento::Cartao do
       end
 
       context "when failure" do
-        # TODO: aguardar liberarem a credencial de cartão para poder rodar os testes
         context "when validation error" do
-          xit "raises PJBank::RequestError" do
+          it "raises PJBank::RequestError" do
             dados[:valor] = ""
 
             VCR.use_cassette("recebimento/cartao/emitir/com_token/erro_400") do
               expect { subject.emitir(dados) }.to raise_error do |error|
                 expect(error).to be_a(PJBank::RequestError)
-                expect(error.message).to eql("TODO")
+                expect(error.message).to eql("Valor inválido")
                 expect(error.code).to eql(400)
               end
             end
@@ -128,16 +134,21 @@ RSpec.describe PJBank::Recebimento::Cartao do
         end
 
         context "when credentia is no available yet" do
-          xit "raises PJBank::RequestError" do
+          before(:each) { PJBank.configuracao.env = "sandbox" }
+
+          let(:credencial) { "921803d24bb2da2eaebb95c96eae1dc2fd14797d" }
+          let(:chave)      { "108f8607a4d0db927a605e45254851a8d5a38e37" }
+
+          it "raises PJBank::RequestError" do
             # É necessária uma usar uma credencial ainda não liberada para simular esse erro
             VCR.use_cassette("recebimento/cartao/emitir/com_token/erro_406") do
+              pending("Na verdade está sendo retornado o status http 200, mas deveria ser 406. Aguardando posição do suporte")
               expect { subject.emitir(dados) }.to raise_error do |error|
-                pending("Na verdade está sendo retornado o status http 200, mas deveria ser 406. Aguardando posição do suporte")
                 expect(error).to be_a(PJBank::RequestError)
                 expect(error.message).to eql("Conta de cartão está pendente de aprovação. Nossa equipe está avaliando o cadastro e lhe notificará quando o processo estiver finalizado.")
                 expect(error.code).to eql(406)
-                fail
               end
+              fail
             end
           end
         end
@@ -147,23 +158,22 @@ RSpec.describe PJBank::Recebimento::Cartao do
     context "when using credit card info" do
       let(:dados) do
         {
-          numero_cartao:       "4012001037141112",
+          numero_cartao:       "5453010000066167",
           nome_cartao:         "Fulana da Silva",
           mes_vencimento:      "05",
           ano_vencimento:      "2018",
           codigo_cvv:          "123",
-          cpf_cartao:          "37843514171",
+          cpf_cartao:          "12345678909",
           email_cartao:        "pjbank-ruby-sdk@mailinator.com",
-          celular_cartao:      "1187906534",
+          celular_cartao:      "22988552211",
           valor:               "10",
           parcelas:            "2",
           descricao_pagamento: "Pagamento de teste"
         }
       end
 
-      # TODO: aguardar liberarem a credencial de cartão para poder rodar os testes
       context "when success" do
-        xit "returns the object with correct data" do
+        it "returns the object with correct data" do
           VCR.use_cassette("recebimento/cartao/emitir/com_cartao/sucesso") do
             response = subject.emitir(dados)
             expect(response.status).to eql("201")
@@ -172,15 +182,14 @@ RSpec.describe PJBank::Recebimento::Cartao do
         end
       end
 
-      # TODO: aguardar liberarem a credencial de cartão para poder rodar os testes
       context "when failure" do
         before { dados[:valor] = "" }
 
-        xit "raises PJBank::RequestError" do
+        it "raises PJBank::RequestError" do
           VCR.use_cassette("recebimento/cartao/emitir/com_cartao/erro") do
             expect { subject.emitir(dados) }.to raise_error do |error|
               expect(error).to be_a(PJBank::RequestError)
-              expect(error.message).to eql("TODO")
+              expect(error.message).to eql("Valor inválido")
               expect(error.code).to eql(400)
             end
           end
@@ -190,24 +199,22 @@ RSpec.describe PJBank::Recebimento::Cartao do
   end
 
   describe "#cancelar" do
-    # TODO: aguardar liberarem a credencial de cartão para poder rodar os testes
     context "when success" do
-      xit "returns the object with correct data" do
+      it "returns the object with correct data" do
         VCR.use_cassette("recebimento/cartao/cancelar/sucesso") do
-          response = subject.cancelar("2017000006910011775476")
+          response = subject.cancelar("2018000006910016943258")
           expect(response.status).to eql("200")
         end
       end
     end
 
-    # TODO: aguardar liberarem a credencial de cartão para poder rodar os testes
     context "when failure" do
-      xit "raises PJBank::RequestError" do
+      it "raises PJBank::RequestError" do
         VCR.use_cassette("recebimento/cartao/cancelar/error") do
           expect { subject.cancelar("") }.to raise_error do |error|
             expect(error).to be_a(PJBank::RequestError)
-            expect(error.message).to eql("TODO")
-            expect(error.code).to eql(400)
+            expect(error.message).to eql("Missing Authentication Token")
+            expect(error.code).to eql(403)
           end
         end
       end
@@ -215,8 +222,7 @@ RSpec.describe PJBank::Recebimento::Cartao do
   end
 
   describe "#transacoes" do
-    # TODO: aguardar liberarem a credencial de cartão para poder rodar os testes
-    xit "returns all the transactions an array of objects" do
+    it "returns all the transactions an array of objects" do
       VCR.use_cassette("recebimento/cartao/transacoes/sem_filtro") do
         resposta = subject.transacoes
         expect(resposta).to be_an(Array)
@@ -224,12 +230,18 @@ RSpec.describe PJBank::Recebimento::Cartao do
       end
     end
 
-    context "when TODO: fazer um teste para cada grupo de filtros (sem filtro, efetivado, por data, paginado) e outro passando vários juntos" do
-      it "TODO" do
-        VCR.use_cassette("recebimento/cartao/transacoes/x") do
-          pending("TODO")
-          fail
-        end
+    it "returns all the transactions an array of objects" do
+      VCR.use_cassette("recebimento/cartao/transacoes/filtro_pagina_1") do
+        resposta = subject.transacoes(data_inicio: "08/20/2017", data_fim: "08/20/2017", pago: 1)
+        expect(resposta).to be_an(Array)
+        expect(resposta.first).to be_an(OpenStruct)
+        expect(resposta.size).to eql(8)
+      end
+
+      VCR.use_cassette("recebimento/cartao/transacoes/filtro_pagina_2") do
+        resposta = subject.transacoes(data_inicio: "08/20/2017", data_fim: "08/20/2017", pago: 1, pagina: 2)
+        expect(resposta).to be_an(Array)
+        expect(resposta).to be_empty
       end
     end
   end

@@ -1,0 +1,69 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.pjbank.com.br/recebimentos/1264e7bea04bb1c24b07ace759f64a1bd65c8560/transacoes
+    body:
+      encoding: UTF-8
+      string: '{"numero_cartao":"5453010000066167","nome_cartao":"Fulana da Silva","mes_vencimento":"05","ano_vencimento":"2018","codigo_cvv":"123","cpf_cartao":"12345678909","email_cartao":"pjbank-ruby-sdk@mailinator.com","celular_cartao":"22988552211","valor":"10","parcelas":"2","descricao_pagamento":"Pagamento
+        de teste"}'
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - pjbank-ruby-sdk/0.1.0
+      Content-Type:
+      - application/json
+      X-Chave:
+      - ef947cf5867488f744b82744dd3a8fc4852e529f
+      Content-Length:
+      - '310'
+      Host:
+      - api.pjbank.com.br
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '425'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 19 Jan 2018 13:04:32 GMT
+      X-Amzn-Requestid:
+      - 4a765c9b-fd19-11e7-b647-5719e0f4243e
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Amzn-Trace-Id:
+      - Root=1-5a61ece0-9f3550d629c3e3f5e1720aca
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 307e1b53caeb384c1d1e5a0420789fe1.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 8krQrIrmFg9W2k6ZDX053P3GRHgzuhc6gpYGyPfQyyG1GEw8JvThkA==
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "status": "201",
+            "token_cartao": "1fd404b255844081d87d97a54d806cdee2f87d19",
+            "tid": "2018000006910016943258",
+            "previsao_credito": "01\/22\/2018",
+            "msg": "Transacao capturada com sucesso",
+            "tid_conciliacao": "1006993069000C8BB92A",
+            "bandeira": "mastercard",
+            "autorizacao": "123456",
+            "cartao_truncado": "5453********6167",
+            "statuscartao": "200",
+            "tarifa": "0.35",
+            "taxa": "7"
+        }
+    http_version: 
+  recorded_at: Fri, 19 Jan 2018 13:04:32 GMT
+recorded_with: VCR 4.0.0

@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.pjbank.com.br/recebimentos/1264e7bea04bb1c24b07ace759f64a1bd65c8560/transacoes
+    body:
+      encoding: UTF-8
+      string: '{"numero_cartao":"5453010000066167","nome_cartao":"Fulana da Silva","mes_vencimento":"05","ano_vencimento":"2018","codigo_cvv":"123","cpf_cartao":"12345678909","email_cartao":"pjbank-ruby-sdk@mailinator.com","celular_cartao":"22988552211","valor":"","parcelas":"2","descricao_pagamento":"Pagamento
+        de teste"}'
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - pjbank-ruby-sdk/0.1.0
+      Content-Type:
+      - application/json
+      X-Chave:
+      - ef947cf5867488f744b82744dd3a8fc4852e529f
+      Content-Length:
+      - '308'
+      Host:
+      - api.pjbank.com.br
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '53'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 19 Jan 2018 13:04:33 GMT
+      X-Amzn-Requestid:
+      - 4ad7b669-fd19-11e7-ace1-41f149becc65
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Amzn-Trace-Id:
+      - Root=1-5a61ece0-02897fe67e6ba47415a2ba6b
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 f67013f405b3f8ee6836899c2eaf9916.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - fgg7dordmadLzwOJ-Os1HKWOuiNs3M60Xl6uVFF-9VQlSOb0fmIX7Q==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAgInN0YXR1cyI6ICI0MDAiLAogICAgIm1zZyI6ICJWYWxvciBpbnbD
+        oWxpZG8iCn0=
+    http_version: 
+  recorded_at: Fri, 19 Jan 2018 13:04:33 GMT
+recorded_with: VCR 4.0.0

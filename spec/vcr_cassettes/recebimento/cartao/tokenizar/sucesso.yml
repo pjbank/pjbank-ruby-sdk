@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://sandbox.pjbank.com.br/recebimentos/921803d24bb2da2eaebb95c96eae1dc2fd14797d/tokens
+    uri: https://api.pjbank.com.br/recebimentos/1264e7bea04bb1c24b07ace759f64a1bd65c8560/tokens
     body:
       encoding: UTF-8
-      string: '{"nome_cartao":"Fulano da silva","numero_cartao":"4318148832046011","mes_vencimento":"01","ano_vencimento":"2019","codigo_cvv":"155","cpf_cartao":"12345678909","email_cartao":"pjbank-ruby-sdk@mailinator.com","celular_cartao":"988225511"}'
+      string: '{"nome_cartao":"Fulano da silva","numero_cartao":"4012001037141112","mes_vencimento":"05","ano_vencimento":"2018","codigo_cvv":"123","cpf_cartao":"12345678909","email_cartao":"pjbank-ruby-sdk@mailinator.com","celular_cartao":"988225511"}'
     headers:
       Accept:
       - "*/*"
@@ -16,11 +16,11 @@ http_interactions:
       Content-Type:
       - application/json
       X-Chave:
-      - 108f8607a4d0db927a605e45254851a8d5a38e37
+      - ef947cf5867488f744b82744dd3a8fc4852e529f
       Content-Length:
       - '237'
       Host:
-      - sandbox.pjbank.com.br
+      - api.pjbank.com.br
   response:
     status:
       code: 201
@@ -33,27 +33,27 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 18 Jan 2018 18:04:25 GMT
+      - Fri, 19 Jan 2018 12:19:01 GMT
       X-Amzn-Requestid:
-      - 046fe161-fc7a-11e7-ba45-3d1bd7fd35f8
+      - eee875b8-fd12-11e7-bb89-13f12e61c05b
       Access-Control-Allow-Origin:
       - "*"
       X-Amzn-Trace-Id:
-      - Root=1-5a60e1a8-41f475e6b706688caba13d47
+      - Root=1-5a61e235-3ce645eb917b54919522d6e0
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 6a5c800c7461352cf3c0abd4ca7b1c70.cloudfront.net (CloudFront)
+      - 1.1 9bbbff89f390d986abe444b87e2a36d6.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - tI3lRLqMa_58pbJV4TxmkpsYjxDu0fE9Wemlw7OgCaLKy6yCCHcLHg==
+      - G0xLJuXj7KTq1SAzbLrksaGTUEyvxXRPBnBwgnIjKF29TfEADoaAZQ==
     body:
       encoding: UTF-8
       string: |-
         {
             "status": "201",
-            "token_cartao": "9c87d346e54aada76f3751ae9f686bd01c65839c",
+            "token_cartao": "26357b6566b2dce3217701ec9f3215ffd30e2324",
             "msg": "Sucesso ao tokenizar"
         }
     http_version: 
-  recorded_at: Thu, 18 Jan 2018 18:04:25 GMT
+  recorded_at: Fri, 19 Jan 2018 12:19:01 GMT
 recorded_with: VCR 4.0.0

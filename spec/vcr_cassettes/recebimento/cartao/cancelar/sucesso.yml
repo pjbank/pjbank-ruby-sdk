@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://api.pjbank.com.br/recebimentos/1264e7bea04bb1c24b07ace759f64a1bd65c8560/transacoes/2018000006910016943258
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - pjbank-ruby-sdk/0.1.0
+      Content-Type:
+      - application/json
+      X-Chave:
+      - ef947cf5867488f744b82744dd3a8fc4852e529f
+      Host:
+      - api.pjbank.com.br
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '46'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 19 Jan 2018 13:06:28 GMT
+      X-Amzn-Requestid:
+      - 8f166a82-fd19-11e7-a29f-a1937161e626
+      X-Amzn-Trace-Id:
+      - Root=1-5a61ed53-689c3dbf699ab9b89074e5f9
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 4439002d6daaac643ef0db52eccaf058.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - hidBjVHRvurEl-ycNz1GotUs4C8Trymn3i0gykLBW5pZk9OOH0ZbCg==
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "status": "200",
+            "msg": "Sucesso."
+        }
+    http_version: 
+  recorded_at: Fri, 19 Jan 2018 13:06:28 GMT
+recorded_with: VCR 4.0.0
