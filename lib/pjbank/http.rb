@@ -21,34 +21,39 @@ module PJBank
 
     private
 
-    # TODO: refatorar esse método quando TODOS testes estiverem rodando sem problema.
     def send_request(method, path, options)
       options[:payload] = options[:payload].to_json if options[:payload]
-      query_params = options.delete(:params) || {}
 
-      response = RestClient::Request.execute(options.merge!({
+      execute_request(method, path, options) do |response|
+        if response.is_a?(Array)
+          response.map { |i| OpenStruct.new(i) }
+        else
+          OpenStruct.new(response)
+        end
+      end
+    end
+
+    def execute_request(method, path, options, &block)
+      response = RestClient::Request.execute(prepare_request_options(method, path, options))
+
+      yield(JSON.parse(response.body))
+
+      rescue RestClient::GatewayTimeout, RestClient::Exceptions::Timeout
+        raise RequestTimeout
+      rescue RestClient::ExceptionWithResponse => e
+        error!(e.response)
+    end
+
+    def prepare_request_options(method, path, options)
+      deep_hash_merge(options, {
         method:  method,
         url:     define_url(path),
         headers: {
           "Content-Type" => "application/json",
           "X-CHAVE"      => chave,
           "User-Agent"   => PJBank.configuracao.user_agent,
-          params:           query_params,
         }
-      }))
-
-      # TODO: testar isso
-      parsed_response = JSON.parse(response.body)
-      if parsed_response.is_a?(Array)
-        parsed_response.map { |i| OpenStruct.new(i) }
-      else
-        OpenStruct.new(parsed_response)
-      end
-
-      rescue RestClient::GatewayTimeout, RestClient::Exceptions::Timeout
-        raise RequestTimeout
-      rescue RestClient::ExceptionWithResponse => e
-        error!(e.response)
+      })
     end
 
     def define_url(path)
@@ -62,6 +67,10 @@ module PJBank
         message: body["msg"] || body["message"],
         body:    body
       )
+    end
+
+    def deep_hash_merge(h1, h2)
+      h1.merge(h2) { |key, h1_elem, h2_elem| deep_hash_merge(h1_elem, h2_elem) }
     end
   end
 end

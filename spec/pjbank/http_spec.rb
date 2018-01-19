@@ -17,8 +17,7 @@ RSpec.describe PJBank::Http do
           headers: {
             "Content-Type" => "application/json",
             "X-CHAVE"      => "9c682cda1",
-            "User-Agent"   => "my app/1.5.2",
-            params:        {},
+            "User-Agent"   => "my app/1.5.2"
           }
         ).and_return(double(code: 200, body: '{"status":200}'))
 
@@ -26,14 +25,32 @@ RSpec.describe PJBank::Http do
     end
 
     context "when sends a successfully #{method.to_s.upcase} request to API" do
-      it "returns an object that responds for the body attributes" do
-        expect(RestClient::Request).to receive(:execute).with(hash_including(method: method)).
-          and_return(double(code: 200, body: '{"status":200,"msg":"Sucesso."}'))
+      context "when returns an single object" do
+        it "returns an object that responds for the body attributes" do
+          expect(RestClient::Request).to receive(:execute).with(hash_including(method: method)).
+            and_return(double(code: 200, body: '{"status":200,"msg":"Sucesso."}'))
 
-        result = subject.send(method, "/resource")
-        expect(result).to be_a(OpenStruct)
-        expect(result.status).to eql(200)
-        expect(result.msg).to eql("Sucesso.")
+          result = subject.send(method, "/resource")
+          expect(result).to be_an(OpenStruct)
+          expect(result.status).to eql(200)
+          expect(result.msg).to eql("Sucesso.")
+        end
+      end
+
+      context "when returns an array of objects" do
+        it "returns an array of object that responds for the body attributes" do
+          expect(RestClient::Request).to receive(:execute).with(hash_including(method: method)).
+            and_return(double(code: 200, body: '[{"valor": "60.5", "id_unico": "33511"},{"valor": "19.0", "id_unico": "33512"}]'))
+
+          result = subject.send(method, "/resource")
+          expect(result).to be_an(Array)
+          expect(result.first).to be_an(OpenStruct)
+          expect(result.first.valor).to eql("60.5")
+          expect(result.first.id_unico).to eql("33511")
+          expect(result.last).to be_an(OpenStruct)
+          expect(result.last.valor).to eql("19.0")
+          expect(result.last.id_unico).to eql("33512")
+        end
       end
     end
 
@@ -60,8 +77,8 @@ RSpec.describe PJBank::Http do
           ).
           and_return(double(code: 200, body: '{"status":200,"msg":"Sucesso."}'))
 
-        result = subject.send(method, "/resource", params: { data_inicio: "19/05/2018" } )
-        expect(result).to be_a(OpenStruct)
+        result = subject.send(method, "/resource", headers: { params: { data_inicio: "19/05/2018" } })
+        expect(result).to be_an(OpenStruct)
         expect(result.status).to eql(200)
         expect(result.msg).to eql("Sucesso.")
       end

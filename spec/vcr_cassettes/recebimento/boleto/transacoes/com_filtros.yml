@@ -1,0 +1,97 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.pjbank.com.br/recebimentos/15524442a57788c4f3109c939056d821302155a9/transacoes?data_fim=01/20/2018&data_inicio=01/08/2017
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - pjbank-ruby-sdk/0.1.0
+      Content-Type:
+      - application/json
+      X-Chave:
+      - 027e30fbc768931e0682479e0f0404a0fcc8886b
+      Host:
+      - sandbox.pjbank.com.br
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1439'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 19 Jan 2018 17:17:31 GMT
+      X-Amzn-Requestid:
+      - a18c49a4-fd3c-11e7-826e-db23a87c971c
+      X-Amzn-Trace-Id:
+      - Root=1-5a62282a-7f0f71935900b81d4ea5592a
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 5b14adc8ae3e019e0382024cdb5c8744.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - gBJvF4DIhhHjS56oProxXJl2R-HNWhbgU9whDTehwBTJssbQESjJtw==
+    body:
+      encoding: UTF-8
+      string: |-
+        [
+            {
+                "valor": "600.5",
+                "nosso_numero": "33512",
+                "nosso_numero_original": "",
+                "id_unico": "33512",
+                "id_unico_original": "",
+                "pedido_numero": "45896",
+                "banco_numero": "033",
+                "token_facilitador": "78f0dce295bf8c4fa26bf5de3daefd1d659fe381",
+                "valor_liquido": "0",
+                "data_vencimento": "01\/10\/2018",
+                "data_pagamento": "",
+                "data_credito": "",
+                "pagador": "Teste do boleto 889"
+            },
+            {
+                "valor": "600.5",
+                "nosso_numero": "33511",
+                "nosso_numero_original": "",
+                "id_unico": "33511",
+                "id_unico_original": "",
+                "pedido_numero": "",
+                "banco_numero": "033",
+                "token_facilitador": "78f0dce295bf8c4fa26bf5de3daefd1d659fe381",
+                "valor_liquido": "0",
+                "data_vencimento": "01\/10\/2018",
+                "data_pagamento": "",
+                "data_credito": "",
+                "pagador": "Teste do boleto 889"
+            },
+            {
+                "valor": "600.5",
+                "nosso_numero": "33510",
+                "nosso_numero_original": "",
+                "id_unico": "33510",
+                "id_unico_original": "",
+                "pedido_numero": "4569",
+                "banco_numero": "033",
+                "token_facilitador": "78f0dce295bf8c4fa26bf5de3daefd1d659fe381",
+                "valor_liquido": "0",
+                "data_vencimento": "01\/10\/2018",
+                "data_pagamento": "",
+                "data_credito": "",
+                "pagador": "Teste do boleto 889"
+            }
+        ]
+    http_version: 
+  recorded_at: Fri, 19 Jan 2018 17:17:31 GMT
+recorded_with: VCR 4.0.0

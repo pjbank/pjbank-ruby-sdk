@@ -8,11 +8,11 @@ module PJBank
       end
 
       def emitir(dados)
-        http.post("#{base_url_path}/:credencial/transacoes", { payload: dados })
+        http.post("#{base_url_path}/:credencial/transacoes", payload: dados)
       end
 
       def transacoes(params={})
-        http.get("#{base_url_path}/:credencial/transacoes", params: params)
+        http.get("#{base_url_path}/:credencial/transacoes", headers: { params: params })
       end
 
       def cancelar(id)

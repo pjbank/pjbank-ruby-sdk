@@ -165,21 +165,23 @@ RSpec.describe PJBank::Recebimento::Boleto do
   end
 
   describe "#transacoes" do
-    xit "returns all the transactions an array of objects" do
+    it "returns all the transactions an array of objects" do
       VCR.use_cassette("recebimento/boleto/transacoes/sem_filtro") do
         pending("TODO: ver com o suporte porque está retornando um array vazio sempre, mesmo eu já tendo criado boletos")
         resposta = subject.transacoes
         expect(resposta).to be_an(Array)
         expect(resposta.first).to be_an(OpenStruct)
+        fail
       end
     end
 
-    context "when TODO: fazer um teste para cada grupo de filtros (sem filtro, efetivado, por data, paginado) e outro passando vários juntos" do
-      it "TODO" do
-        VCR.use_cassette("recebimento/boleto/transacoes/x") do
-          pending("TODO")
-          fail
-        end
+    it "returns all the transactions an array of objects" do
+      VCR.use_cassette("recebimento/boleto/transacoes/com_filtros") do
+        pending("TODO: ver com o suporte porque o teste anterior retorna vazio e esse retorna alguns items, sendo que não os criei e os que eu criei alguns minutos antes não aparecem")
+        resposta = subject.transacoes(data_inicio: "01/08/2017", data_fim: "01/20/2018")
+        expect(resposta).to be_an(Array)
+        expect(resposta.first).to be_an(OpenStruct)
+        fail
       end
     end
   end
