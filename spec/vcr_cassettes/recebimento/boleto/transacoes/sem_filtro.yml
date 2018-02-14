@@ -31,20 +31,20 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 19 Jan 2018 17:03:16 GMT
+      - Wed, 14 Feb 2018 12:28:28 GMT
       X-Amzn-Requestid:
-      - a4163a2c-fd3a-11e7-bbf7-ab83fb6dabec
+      - 8eba6198-1182-11e8-87ae-534b512835f2
       X-Amzn-Trace-Id:
-      - Root=1-5a6224d4-be466d1084a73ad2a9ed1609
+      - Root=1-5a842b6b-fad5e27358301a92894b060b
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 0e9163f15cdbd035c43aabe716ffa7df.cloudfront.net (CloudFront)
+      - 1.1 4251da4481948b0ac3a8deec1d24db31.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - tKj19PSTUx3pGjhhyENa8c8yFImajdSfTuzI4wPtDjP-wlwRaA-kxQ==
+      - xR86rlbt7-M_XnppOF7LxalcYb58ZR39fNl7Ed_5u0gHMOudPqKzxA==
     body:
       encoding: UTF-8
       string: "[]"
     http_version: 
-  recorded_at: Fri, 19 Jan 2018 17:03:16 GMT
+  recorded_at: Wed, 14 Feb 2018 12:28:28 GMT
 recorded_with: VCR 4.0.0

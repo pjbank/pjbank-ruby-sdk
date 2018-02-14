@@ -75,12 +75,28 @@ RSpec.describe PJBank::Recebimento::Boleto do
     end
 
     context "when success" do
-      it "returns the object with correct data" do
-        VCR.use_cassette("recebimento/boleto/emitir/sucesso") do
-          response = subject.emitir(dados)
-          expect(response.status).to eql("201")
-          expect(response.linhaDigitavel).to_not be_nil
-          expect(response.linkBoleto).to_not be_nil
+      context "when does not exist with same pedido_numero" do
+        it "returns the object with correct data" do
+          VCR.use_cassette("recebimento/boleto/emitir/sucesso") do
+            response = subject.emitir(dados)
+            expect(response.status).to eql("201")
+            expect(response.linhaDigitavel).to_not be_nil
+            expect(response.linkBoleto).to_not be_nil
+          end
+        end
+      end
+
+      context "when exists with same pedido_numero" do
+        # É necessário que tenha emitido um boleto com esse mesmo pedido_numero para simular essa resposta
+        before { dados[:pedido_numero] = "99887755" }
+
+        it "returns the object with correct data" do
+          VCR.use_cassette("recebimento/boleto/emitir/sucesso_existent") do
+            response = subject.emitir(dados)
+            expect(response.status).to eql("200")
+            expect(response.linhaDigitavel).to_not be_nil
+            expect(response.linkBoleto).to_not be_nil
+          end
         end
       end
     end
@@ -118,19 +134,6 @@ RSpec.describe PJBank::Recebimento::Boleto do
         it "raises PJBank::RequestTimeout" do
           VCR.use_cassette("recebimento/boleto/emitir/erro_504") do
             expect { subject.emitir(dados) }.to raise_error(PJBank::RequestTimeout)
-          end
-        end
-      end
-
-      context "when locked error (423)" do
-        # É necessário que tenha emitido a pouco tempo um boleto com esse mesmo pedido_numero para simular esse erro.
-        before { dados[:pedido_numero] = "8972" }
-
-        it "raises PJBank::RequestError" do
-          VCR.use_cassette("recebimento/boleto/emitir/erro_423") do
-            pending("Na verdade está sendo retornado o status http 200, mas deveria ser 423. Aguardando posição do suporte")
-            expect { subject.emitir(dados) }.to raise_error(PJBank::RequestError)
-            fail
           end
         end
       end

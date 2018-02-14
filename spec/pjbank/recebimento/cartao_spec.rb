@@ -133,22 +133,20 @@ RSpec.describe PJBank::Recebimento::Cartao do
           end
         end
 
-        context "when credentia is no available yet" do
+        context "when credential is no available yet" do
           before(:each) { PJBank.configuracao.env = "sandbox" }
 
-          let(:credencial) { "921803d24bb2da2eaebb95c96eae1dc2fd14797d" }
-          let(:chave)      { "108f8607a4d0db927a605e45254851a8d5a38e37" }
+          let(:credencial) { "095136aa2f624d56493cbe5b0787132ec3391dfc" }
+          let(:chave)      { "dc2a4de4531fc970a2161d38cf3a20650d02c908" }
 
           it "raises PJBank::RequestError" do
             # É necessária uma usar uma credencial ainda não liberada para simular esse erro
-            VCR.use_cassette("recebimento/cartao/emitir/com_token/erro_406") do
-              pending("Na verdade está sendo retornado o status http 200, mas deveria ser 406. Aguardando posição do suporte")
+            VCR.use_cassette("recebimento/cartao/emitir/com_token/erro_400_credencial") do
               expect { subject.emitir(dados) }.to raise_error do |error|
                 expect(error).to be_a(PJBank::RequestError)
-                expect(error.message).to eql("Conta de cartão está pendente de aprovação. Nossa equipe está avaliando o cadastro e lhe notificará quando o processo estiver finalizado.")
-                expect(error.code).to eql(406)
+                expect(error.message).to eql("Token do cliente não encontrado.")
+                expect(error.code).to eql(400)
               end
-              fail
             end
           end
         end
