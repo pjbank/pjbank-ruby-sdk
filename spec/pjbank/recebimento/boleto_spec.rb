@@ -94,6 +94,7 @@ RSpec.describe PJBank::Recebimento::Boleto do
           VCR.use_cassette("recebimento/boleto/emitir/sucesso_existent") do
             response = subject.emitir(dados)
             expect(response.status).to eql("200")
+            expect(response.pedido_numero).to be_nil
             expect(response.linhaDigitavel).to_not be_nil
             expect(response.linkBoleto).to_not be_nil
           end
@@ -102,6 +103,22 @@ RSpec.describe PJBank::Recebimento::Boleto do
     end
 
     context "when failure" do
+      context "when exists a canceled with same pedido_numero (500)" do
+        # É necessário que tenha emitido um boleto com esse mesmo pedido_numero e depois cancelado ele
+        before { dados[:pedido_numero] = "552224411" }
+
+        it "raises PJBank::RequestError" do
+          VCR.use_cassette("recebimento/boleto/emitir/erro_reemitir_cancelada") do
+            pending("TODO: ver com o suporte porque está retornando um array sendo que não é uma emissão em lote")
+            expect { subject.emitir(dados) }.to raise_error do |error|
+              expect(error).to be_a(PJBank::RequestError)
+              expect(error.message).to eql("Cobrança que corresponde a esse pedido 1 foi invalidada.")
+              expect(error.code).to eql(500)
+            end
+          end
+        end
+      end
+
       context "when validation error (500)" do
         let(:dados) do
           { valor: "100.55" }
@@ -130,7 +147,7 @@ RSpec.describe PJBank::Recebimento::Boleto do
         end
       end
 
-      context "when unauthorized error (504)" do
+      context "when timeout error (504)" do
         it "raises PJBank::RequestTimeout" do
           VCR.use_cassette("recebimento/boleto/emitir/erro_504") do
             expect { subject.emitir(dados) }.to raise_error(PJBank::RequestTimeout)
