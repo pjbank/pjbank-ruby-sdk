@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.pjbank.com.br/recebimentos/15524442a57788c4f3109c939056d821302155a9/transacoes
+    body:
+      encoding: UTF-8
+      string: '{"vencimento":"12/30/2019","valor":"1000.98","juros":"0.0","multa":"0.98","desconto":"9.58","nome_cliente":"Cliente
+        de exemplo","cpf_cliente":"62936576000112","endereco_cliente":"Rua Joaquim
+        Vilac","numero_cliente":509,"complemento_cliente":"","bairro_cliente":"Vila
+        Teixeira","cidade_cliente":"Campinas","estado_cliente":"SP","cep_cliente":"13301510","texto":"","grupo":"Boletos001","pedido_numero":"552224411"}'
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - pjbank-ruby-sdk/0.1.0
+      Content-Type:
+      - application/json
+      X-Chave:
+      - 027e30fbc768931e0682479e0f0404a0fcc8886b
+      Content-Length:
+      - '412'
+      Host:
+      - sandbox.pjbank.com.br
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '123'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 12 Apr 2018 19:22:50 GMT
+      X-Amzn-Requestid:
+      - e3845435-3e86-11e8-b08a-99b8375b7bbf
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Amz-Apigw-Id:
+      - FPjBiGo7mjQFXWQ=
+      X-Amzn-Trace-Id:
+      - Root=1-5acfb209-8eed9e6f69aa287d50da52fd
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 ee1cd7250af03109599965184d91ad8f.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - lTrbHRmUlvpJvDXYtajh9pcCgOm7jfuPrDRT08U3QbpV1uXunByB-w==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        WwogICAgewogICAgICAgICJzdGF0dXMiOiAiNTAwIiwKICAgICAgICAibXNn
+        IjogIkNvYnJhbsOnYSBxdWUgY29ycmVzcG9uZGUgYSBlc3NlIHBlZGlkbyA1
+        NTIyMjQ0MTEgZm9pIGludmFsaWRhZGEuIgogICAgfQpd
+    http_version: 
+  recorded_at: Thu, 12 Apr 2018 19:22:50 GMT
+recorded_with: VCR 4.0.0

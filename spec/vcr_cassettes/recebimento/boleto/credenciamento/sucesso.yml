@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.pjbank.com.br/recebimentos/
+    body:
+      encoding: UTF-8
+      string: '{"nome_empresa":"Boleto Sem Conta Digital","conta_repasse":"99999-9","agencia_repasse":"00001","banco_repasse":"001","cnpj":"67733092000190","ddd":"22","telefone":"988225511","email":"pjbank-ruby-sdk@mailinator.com"}'
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - pjbank-ruby-sdk/0.1.0
+      Content-Type:
+      - application/json
+      X-Chave:
+      - ''
+      Content-Length:
+      - '216'
+      Host:
+      - sandbox.pjbank.com.br
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '236'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 11 Jan 2018 21:30:23 GMT
+      X-Amzn-Requestid:
+      - a03d1bbc-f716-11e7-b6fe-1d0c810855f7
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Amzn-Trace-Id:
+      - Root=1-5a57d76c-740a0ed199fa4440e159df46
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 a04b1236ff94001be4997024a95202fd.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 9jKTdskGayS0Lif3FA2pG4GeLEtp_nedUDFsNKE3EStaR4jiFZamOQ==
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "status": "201",
+            "msg": "Sucesso ao credenciar",
+            "credencial": "15524442a57788c4f3109c939056d821302155a9",
+            "chave": "027e30fbc768931e0682479e0f0404a0fcc8886b",
+            "conta_virtual": "140983",
+            "agencia_virtual": ""
+        }
+    http_version: 
+  recorded_at: Thu, 11 Jan 2018 21:30:23 GMT
+recorded_with: VCR 4.0.0

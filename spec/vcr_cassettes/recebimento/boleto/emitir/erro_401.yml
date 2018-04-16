@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.pjbank.com.br/recebimentos/15524442a57788c4f3109c939056d821302155a9/transacoes
+    body:
+      encoding: UTF-8
+      string: '{"vencimento":"12/30/2019","valor":"1000.98","juros":"0.0","multa":"0.98","desconto":"9.58","nome_cliente":"Cliente
+        de exemplo","cpf_cliente":"62936576000112","endereco_cliente":"Rua Joaquim
+        Vilac","numero_cliente":509,"complemento_cliente":"","bairro_cliente":"Vila
+        Teixeira","cidade_cliente":"Campinas","estado_cliente":"SP","cep_cliente":"13301510","texto":"","grupo":"Boletos001","pedido_numero":"8972"}'
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - pjbank-ruby-sdk/0.1.0
+      Content-Type:
+      - application/json
+      X-Chave:
+      - 027e30fbc768931e0682479e0f0404a0fcc8886b
+      Content-Length:
+      - '400'
+      Host:
+      - sandbox.pjbank.com.br
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '59'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 12 Jan 2018 11:28:09 GMT
+      X-Amzn-Requestid:
+      - aa53c203-f78b-11e7-b749-230b0f7af8f2
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Amzn-Trace-Id:
+      - Root=1-5a589bc8-dbede4ec25f0d664a10774af
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 f1b4e4a7e835f23b19b87ec81024b65a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - vqGsYWbM0W5YzHsjaeM01s0Q54JIwxkXm9kQ7py89QymPz9sFkCH6Q==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAgInN0YXR1cyI6ICI0MDEiLAogICAgIm1zZyI6ICJDcmVkZW5jaWFs
+        IGludsOhbGlkYS4iCn0=
+    http_version:
+  recorded_at: Fri, 12 Jan 2018 11:28:09 GMT
+recorded_with: VCR 4.0.0

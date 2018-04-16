@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.pjbank.com.br/recebimentos/
+    body:
+      encoding: UTF-8
+      string: '{"nome_empresa":"Cartão Sem Conta Digital","conta_repasse":"99999-9","agencia_repasse":"00001","banco_repasse":"001","cnpj":"","ddd":"22","telefone":"988225511","email":"pjbank-ruby-sdk@mailinator.com","cartao":true}'
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - pjbank-ruby-sdk/0.1.0
+      Content-Type:
+      - application/json
+      X-Chave:
+      - ''
+      Content-Length:
+      - '217'
+      Host:
+      - sandbox.pjbank.com.br
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '53'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 18 Jan 2018 18:03:42 GMT
+      X-Amzn-Requestid:
+      - eab82b66-fc79-11e7-bfbd-4d1dfbd201cc
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Amzn-Trace-Id:
+      - Root=1-5a60e17d-b30c1d63c7000b1a31d99f63
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 2536512acf782b64eb7d851771cec647.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - qGn-1cDlAgZhMaQyFARzpUPfOA7kpHGnPjvW-9ipGB4-1yvLlQYiwQ==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAgInN0YXR1cyI6ICI0MDAiLAogICAgIm1zZyI6ICJDTlBKIGludsOh
+        bGlkby4iCn0=
+    http_version: 
+  recorded_at: Thu, 18 Jan 2018 18:03:42 GMT
+recorded_with: VCR 4.0.0
