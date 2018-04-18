@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.pjbank.com.br/contadigital/a92c4a6fae4a8f9e06f141ca4561679f8a9d49a2/recebimentos/transacoes
+    body:
+      encoding: UTF-8
+      string: '{"vencimento":"04/25/2018","valor":155.75,"juros":0,"multa":0,"desconto":"","nome_cliente":"João
+        Mello","cpf_cliente":"12406989763","endereco_cliente":"Rua Joaquim Vilac","numero_cliente":"509","complemento_cliente":"","bairro_cliente":"Vila
+        Teixeira","cidade_cliente":"Campinas","estado_cliente":"SP","cep_cliente":"13301510","logo_url":"http://wallpapercave.com/wp/xK64fR4.jpg","texto":"Boleto
+        boladão","grupo":"Boletos","pedido_numero":"69087"}'
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - pjbank-ruby-sdk/0.1.0
+      Content-Type:
+      - application/json
+      X-Chave:
+      - 6c1c05b0ccff1e4d3c8c7c28078d4928ec5d99db
+      Content-Length:
+      - '449'
+      Host:
+      - sandbox.pjbank.com.br
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '584'
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 18 Apr 2018 18:03:20 GMT
+      X-Amzn-Requestid:
+      - c6b88ff7-4332-11e8-b206-51a324c1c894
+      X-Amz-Apigw-Id:
+      - FjJAMFJ3GjQFafQ=
+      X-Amzn-Trace-Id:
+      - Root=1-5ad78867-e60c6f34504e6f00cb1282f7
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 441a4f67963b083bbf3d61460a1f347f.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - CWPtZC6H0Y9aYwUuYuT-kzLmlNJkl0LIzlw41i82QGvt6yZ7FvF8EQ==
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "status": "201",
+            "msg": "Sucesso.",
+            "nossonumero": "123336",
+            "id_unico": "123336",
+            "banco_numero": "033",
+            "token_facilitador": "78f0dce295bf8c4fa26bf5de3daefd1d659fe381",
+            "credencial": "bcad14cd6befc106efa52f6a755c0789d106c1d2",
+            "linkBoleto": "https:\/\/sandbox.pjbank.com.br\/boletos\/a8bda310250341ed6797b424105769baa0096134",
+            "linkGrupo": "https:\/\/sandbox.pjbank.com.br\/boletos\/grupos\/659966048461749609b8f4fb512deba64f0f4532",
+            "linhaDigitavel": "03399.69925 58737.800019 23336.901014 8 75050000015575",
+            "pedido_numero": "69087"
+        }
+    http_version: 
+  recorded_at: Wed, 18 Apr 2018 18:03:20 GMT
+recorded_with: VCR 4.0.0
