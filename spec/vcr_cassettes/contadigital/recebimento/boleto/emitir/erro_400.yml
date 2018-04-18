@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.pjbank.com.br/contadigital/109c93905615524442a57788c4f3d821302155a9/recebimentos/transacoes
+    body:
+      encoding: UTF-8
+      string: '{"vencimento":"12/30/2019","valor":50.75,"juros":0,"multa":0,"desconto":"","nome_cliente":"Cliente
+        de Exemplo","cpf_cliente":"62936576000112","endereco_cliente":"Rua Joaquim
+        Vilac","numero_cliente":"509","complemento_cliente":"","bairro_cliente":"Vila
+        Teixeira","cidade_cliente":"Campinas","estado_cliente":"SP","cep_cliente":"13301510","logo_url":"http://wallpapercave.com/wp/xK64fR4.jpg","texto":"Exemplo
+        de emissão de boleto","grupo":"Boletos","pedido_numero":"2342"}'
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - pjbank-ruby-sdk/0.1.0
+      Content-Type:
+      - application/json
+      X-Chave:
+      - 6c1c05b0ccff1e4d3c8c7c28078d4928ec5d99db
+      Content-Length:
+      - '471'
+      Host:
+      - sandbox.pjbank.com.br
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '65'
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 18 Apr 2018 14:54:05 GMT
+      X-Amzn-Requestid:
+      - 56771216-4318-11e8-b49a-3ff2a37cbf9f
+      X-Amz-Apigw-Id:
+      - FitR7E67GjQFrFw=
+      X-Amzn-Trace-Id:
+      - Root=1-5ad75c0c-8b2441903e2968c7dbc11433
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 94b0e881c9c9f6ab766133c7c81d54ed.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - NN_QZi4UrRPj_DCdzMFFrbixjIFT6KYbIGhUemygwIHwcd5btEPRHg==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAgInN0YXR1cyI6ICI0MDAiLAogICAgIm1zZyI6ICJDcmVkZW5jaWFsIG7Do28gbG9jYWxpemFkYS4iCn0=
+    http_version: 
+  recorded_at: Wed, 18 Apr 2018 14:54:05 GMT
+recorded_with: VCR 4.0.0
