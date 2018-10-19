@@ -10,10 +10,6 @@ module PJBank
       def impressao(dados)
         http.post("#{base_url_path}/:credencial/transacoes/lotes", payload: dados)
       end
-
-      def info
-        http.get("#{base_url_path}/:credencial")
-      end
     end
   end
 end
