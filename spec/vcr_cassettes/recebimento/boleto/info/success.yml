@@ -1,0 +1,72 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.pjbank.com.br/recebimentos/15524442a57788c4f3109c939056d821302155a9
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - pjbank-ruby-sdk/0.1.0
+      Content-Type:
+      - application/json
+      X-Chave:
+      - 027e30fbc768931e0682479e0f0404a0fcc8886b
+      Host:
+      - sandbox.pjbank.com.br
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '460'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 19 Oct 2018 13:57:45 GMT
+      X-Amzn-Requestid:
+      - f4366ef8-d3a6-11e8-9011-5ff62b6670a6
+      X-Amz-Apigw-Id:
+      - PBBh6GucGjQFahQ=
+      X-Amzn-Trace-Id:
+      - Root=1-5bc9e2d9-e52f5e6664819f204350c080
+      Via:
+      - 1.1 2167e4d6cf81822217c1ea31b3d3ba7e.cloudfront.net (CloudFront), 1.1 c7997bb56b323715bf1de4ece04238fe.cloudfront.net
+        (CloudFront)
+      X-Cache:
+      - Miss from cloudfront
+      X-Amz-Cf-Id:
+      - Z_g8j1hQBEHFsJwDbWmzwA1HHUFBa0pKv5QIb5lFNoz8H4iswT5MWw==
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "cnpj": "50282264000153",
+            "tipo": "",
+            "nome_empresa": "Empresa de Exemplo",
+            "nome_fantasia": "Empresa de Exemplo",
+            "banco": "001 Banco do Brasil",
+            "agencia": "0001",
+            "conta": "99999-9",
+            "cep": "",
+            "endereco": "",
+            "numero": "",
+            "bairro": "",
+            "cidade": "",
+            "estado": "",
+            "telefone": "(19)40096830",
+            "email": "atendimento@pjbank.com.br",
+            "status_conta": "aprovada",
+            "cobrancas_pendentes": []
+        }
+    http_version: 
+  recorded_at: Fri, 19 Oct 2018 13:57:45 GMT
+recorded_with: VCR 4.0.0
