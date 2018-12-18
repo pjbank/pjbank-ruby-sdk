@@ -19,10 +19,14 @@ module PJBank
         http.delete("#{base_url_path}/:credencial/transacoes/#{id}")
       end
 
+      def info
+        http.get("#{base_url_path}/:credencial")
+      end
+
       private
 
       def base_url_path
-        "/recebimentos"
+        '/recebimentos'
       end
     end
   end

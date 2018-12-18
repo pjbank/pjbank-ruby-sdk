@@ -205,4 +205,32 @@ RSpec.describe PJBank::Recebimento::Boleto do
       end
     end
   end
+
+  describe "#info" do
+    context "when success" do
+      it "returns credencial information" do
+        VCR.use_cassette("recebimento/boleto/info/success") do
+          resposta = subject.info
+          expect(resposta).to be_an(OpenStruct)
+          expect(resposta.cnpj).to be_an(String)
+        end
+      end
+    end
+
+    context "when failure" do
+      let(:chave) {'cachorro'}
+
+      context "when validation error (400)" do
+        it "raises PJBank::RequestError" do
+          VCR.use_cassette("recebimento/boleto/info/erro_400") do
+            expect { subject.info }.to raise_error do |error|
+              expect(error).to be_a(PJBank::RequestError)
+              expect(error.message).to eql("Conta não encontrada.")
+              expect(error.code).to eql(400)
+            end
+          end
+        end
+      end
+    end
+  end
 end

@@ -55,6 +55,7 @@ Para realizar chamadas, instancie um client (`PJBank::Client`), e chame os méto
   - transacoes: [todas](https://docs.pjbank.com.br/#aeac7b38-1cda-cbdf-ced0-19fd031e43f6), [liquidadas](https://docs.pjbank.com.br/#a1f847d2-a1de-7aa2-fbd1-9b5b17aa94ea),
   [filtradas por data](https://docs.pjbank.com.br/#c6946e68-3b94-ef66-3a00-f15128d478fe),
   [paginadas](https://docs.pjbank.com.br/#2bff2e30-47e6-4571-e358-32f110de4f47)
+  - [info](https://docs.pjbank.com.br/#c0587f74-d24c-4db1-9790-ccc628d4abdc)
 * [cartao](https://docs.pjbank.com.br/#80a47dce-f30f-f502-cde8-5ee829e42279)
   - [credenciamento](https://docs.pjbank.com.br/#6b249342-6376-925c-f920-0703069407f6)
   - [tokenizar](https://docs.pjbank.com.br/#af15c310-3778-5ecf-fe12-c0aa3f8376ed)
